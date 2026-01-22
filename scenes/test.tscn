@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=4 uid="uid://bqi5uj7qneyow"]
+[gd_scene load_steps=6 format=4 uid="uid://bqi5uj7qneyow"]
 
 [ext_resource type="Texture2D" uid="uid://p8napap0hsmo" path="res://assets/images/tileset.png" id="1_errlg"]
 [ext_resource type="PackedScene" uid="uid://dkwixg1h66al6" path="res://scenes/bot.tscn" id="2_bl13t"]
+[ext_resource type="Script" uid="uid://cpkq27xvenb6e" path="res://scenes/bot_manager.gd" id="2_iyx0m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bl13t"]
 texture = ExtResource("1_errlg")
@@ -18,18 +19,22 @@ sources/0 = SubResource("TileSetAtlasSource_bl13t")
 tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAAgAAAAAAAAAAAABAAgAAAAAAAAAAAACAAgAAAAAAAAAAAADAAgAAAAAAAAAAAAEAAgAAAAAAAAAAAAFAAgAAAAAAAAAAAAGAAgAAAAAAAAAAAAHAAgAAAAAAAAAAAAIAAgAAAAAAAAAAAAJAAgAAAAAAAAAAAAKAAgAAAAAAAAAAAALAAgAAAAAAAAAAAAMAAgAAAAAAAAAAAANAAgAAAAAAAAAAAAOAAgAAAAAAAAAAAAPAAgAAAAAAAAAAAAPAAcAAAAAAAAAAAAPAAYAAAAAAAAAAAAPAAUAAAAAAAAAAAAPAAQAAAAAAAAAAAAPAAMAAAAAAAAAAAAPAAIAAAAAAAAAAAAPAAEAAAAAAAAAAAAPAAAAAAAAAAAAAAAOAAAAAAAAAAAAAAANAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAALAAAAAAAAAAAAAAAKAAAAAAAAAAAAAAAJAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAADAAAAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_iyx0m")
 
-[node name="Bots" type="Node2D" parent="."]
+[node name="BotManager" type="Node2D" parent="."]
+script = ExtResource("2_iyx0m")
 
-[node name="Bot1" parent="Bots" node_paths=PackedStringArray("positions") instance=ExtResource("2_bl13t")]
+[node name="Bot1" parent="BotManager" node_paths=PackedStringArray("positions") instance=ExtResource("2_bl13t")]
 position = Vector2(396, 324)
-up_input_action = "left_up"
-down_input_action = "left_down"
 positions = NodePath("../../BotPositions/Bot1Positions")
 position_index = 1
 
-[node name="Bot2" parent="Bots" node_paths=PackedStringArray("positions") instance=ExtResource("2_bl13t")]
+[node name="Bot2" parent="BotManager" node_paths=PackedStringArray("positions") instance=ExtResource("2_bl13t")]
 position = Vector2(540, 324)
 positions = NodePath("../../BotPositions/Bot2Positions")
+position_index = 1
+
+[node name="Bot3" parent="BotManager" node_paths=PackedStringArray("positions") instance=ExtResource("2_bl13t")]
+position = Vector2(684, 324)
+positions = NodePath("../../BotPositions/Bot3Positions")
 position_index = 1
 
 [node name="BotPositions" type="Node2D" parent="."]
@@ -55,3 +60,14 @@ position = Vector2(540, 324)
 
 [node name="Marker2D3" type="Marker2D" parent="BotPositions/Bot2Positions"]
 position = Vector2(540, 468)
+
+[node name="Bot3Positions" type="Node2D" parent="BotPositions"]
+
+[node name="Marker2D" type="Marker2D" parent="BotPositions/Bot3Positions"]
+position = Vector2(684, 180)
+
+[node name="Marker2D2" type="Marker2D" parent="BotPositions/Bot3Positions"]
+position = Vector2(684, 324)
+
+[node name="Marker2D3" type="Marker2D" parent="BotPositions/Bot3Positions"]
+position = Vector2(684, 468)

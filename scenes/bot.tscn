@@ -1,10 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://dkwixg1h66al6"]
+[gd_scene load_steps=4 format=3 uid="uid://dkwixg1h66al6"]
 
 [ext_resource type="Texture2D" uid="uid://cs4h8710bfrxc" path="res://assets/images/bot.png" id="1_cwism"]
 [ext_resource type="Script" uid="uid://ccdjut6nc1uaq" path="res://scenes/bot.gd" id="1_qpkb6"]
+[ext_resource type="Texture2D" uid="uid://dv6kvuk1vlh1a" path="res://assets/images/bot_selector.png" id="3_hhacj"]
 
 [node name="Bot" type="Node2D"]
 script = ExtResource("1_qpkb6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_cwism")
+
+[node name="SelectorSprite" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -48.999996)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_hhacj")
