@@ -57,6 +57,7 @@ switch_bot_to_right={
 [layer_names]
 
 2d_physics/layer_1="conveyors"
+2d_physics/layer_2="cakes"
 
 [rendering]
 
