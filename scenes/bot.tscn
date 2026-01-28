@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dkwixg1h66al6"]
+[gd_scene load_steps=6 format=3 uid="uid://dkwixg1h66al6"]
 
 [ext_resource type="Texture2D" uid="uid://cs4h8710bfrxc" path="res://assets/images/bot.png" id="1_cwism"]
 [ext_resource type="Script" uid="uid://ccdjut6nc1uaq" path="res://scenes/bot.gd" id="1_qpkb6"]
 [ext_resource type="Texture2D" uid="uid://dv6kvuk1vlh1a" path="res://assets/images/bot_selector.png" id="3_hhacj"]
 [ext_resource type="PackedScene" uid="uid://d3vkei1mcmiby" path="res://scenes/conveyor.tscn" id="4_hon3i"]
+[ext_resource type="PackedScene" uid="uid://yisn5ae1rfsx" path="res://scenes/position_sensor.tscn" id="5_u8vap"]
 
 [node name="Bot" type="Node2D"]
 script = ExtResource("1_qpkb6")
@@ -20,3 +21,5 @@ texture = ExtResource("3_hhacj")
 
 [node name="Conveyor" parent="." instance=ExtResource("4_hon3i")]
 modulate = Color(0.68969953, 0.68969965, 0.6896996, 1)
+
+[node name="PositionSensor" parent="Conveyor" instance=ExtResource("5_u8vap")]
