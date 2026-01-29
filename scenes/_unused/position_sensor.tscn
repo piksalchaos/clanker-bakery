@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://yisn5ae1rfsx"]
 
-[ext_resource type="Script" uid="uid://c3mssemow43gx" path="res://scenes/position_sensor.gd" id="1_loacu"]
+[ext_resource type="Script" uid="uid://c3mssemow43gx" path="res://scenes/_unused/position_sensor.gd" id="1_loacu"]
 
 [node name="PositionSensor" type="Node2D"]
 script = ExtResource("1_loacu")

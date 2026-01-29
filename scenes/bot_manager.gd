@@ -12,7 +12,6 @@ func _unhandled_input(event: InputEvent) -> void:
 		change_bot_index(1)
 		return
 	
-	
 	if event.is_action_pressed("move_bot_down"):
 		move_bot(1)
 		return

@@ -7,10 +7,12 @@ const VIBRATION_DELTA: float = 40.0
 @export var positions: Node2D
 @export var position_index: int = 0
 
+var _movement_tween: Tween
 var _vibration: float = 0.0
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var selector_sprite: Sprite2D = $SelectorSprite
+@onready var cake_mover: Area2D = $CakeMover
 
 func _ready() -> void:
 	position_index = _clamp_position_index(position_index)
@@ -31,6 +33,7 @@ func move(position_index_offset: int) -> void:
 	position_index = _clamp_position_index(next_position_index)
 	if next_position_index == position_index:
 		_tween_position_by_index()
+		cake_mover.start_moving_cakes()
 	else:
 		_vibration = MAX_VIBRATION
 
@@ -44,8 +47,12 @@ func _update_position_by_index() -> void:
 
 
 func _tween_position_by_index() -> void:
+	if _movement_tween and _movement_tween.is_running():
+		_movement_tween.stop()
+	
 	var final_position: Vector2 = positions.get_child(position_index).position
-	var tween: Tween = create_tween()
-	tween.tween_property(
+	_movement_tween = create_tween()
+	_movement_tween.tween_property(
 			self, "position", final_position, 0.15
 			).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
+	_movement_tween.tween_callback(cake_mover.stop_moving_cakes)

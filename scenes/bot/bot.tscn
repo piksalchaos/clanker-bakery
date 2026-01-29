@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://dkwixg1h66al6"]
+[gd_scene load_steps=7 format=3 uid="uid://dkwixg1h66al6"]
 
 [ext_resource type="Texture2D" uid="uid://cs4h8710bfrxc" path="res://assets/images/bot.png" id="1_cwism"]
-[ext_resource type="Script" uid="uid://ccdjut6nc1uaq" path="res://scenes/bot.gd" id="1_qpkb6"]
+[ext_resource type="Script" uid="uid://ccdjut6nc1uaq" path="res://scenes/bot/bot.gd" id="1_qpkb6"]
 [ext_resource type="Texture2D" uid="uid://dv6kvuk1vlh1a" path="res://assets/images/bot_selector.png" id="3_hhacj"]
 [ext_resource type="PackedScene" uid="uid://d3vkei1mcmiby" path="res://scenes/conveyor.tscn" id="4_hon3i"]
-[ext_resource type="PackedScene" uid="uid://yisn5ae1rfsx" path="res://scenes/position_sensor.tscn" id="5_u8vap"]
+[ext_resource type="Script" uid="uid://b8bgsf6fypf5r" path="res://scenes/bot/cake_mover.gd" id="5_u8vap"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ntuq6"]
+size = Vector2(36, 72)
 
 [node name="Bot" type="Node2D"]
 script = ExtResource("1_qpkb6")
@@ -22,4 +25,10 @@ texture = ExtResource("3_hhacj")
 [node name="Conveyor" parent="." instance=ExtResource("4_hon3i")]
 modulate = Color(0.68969953, 0.68969965, 0.6896996, 1)
 
-[node name="PositionSensor" parent="Conveyor" instance=ExtResource("5_u8vap")]
+[node name="CakeMover" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("5_u8vap")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CakeMover"]
+shape = SubResource("RectangleShape2D_ntuq6")
