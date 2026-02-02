@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://r8xxv5s5dl4o" path="res://scenes/conveyor.gd" id="1_y326v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hon3i"]
-size = Vector2(71, 71)
+size = Vector2(72, 72)
 
 [node name="Conveyor" type="Area2D"]
 collision_mask = 0

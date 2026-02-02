@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cse3ktqjdgusv"]
+[gd_scene load_steps=6 format=3 uid="uid://cse3ktqjdgusv"]
 
 [ext_resource type="Script" uid="uid://n8kf4cvdlyns" path="res://scenes/cake.gd" id="1_4ujaa"]
-[ext_resource type="Texture2D" uid="uid://d1rtjp2yt1xbp" path="res://icon.svg" id="1_r3iun"]
+[ext_resource type="Texture2D" uid="uid://bxuyrw5slujob" path="res://assets/images/cake/bases.png" id="2_4ujaa"]
+[ext_resource type="Texture2D" uid="uid://b1d321es11vd0" path="res://assets/images/cake/icings.png" id="3_knmf5"]
+[ext_resource type="Texture2D" uid="uid://blu2qot0fk7x7" path="res://assets/images/cake/toppings.png" id="4_bg1l6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r3iun"]
 size = Vector2(64, 52)
@@ -10,12 +12,28 @@ size = Vector2(64, 52)
 collision_layer = 2
 script = ExtResource("1_4ujaa")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.4)
-texture = ExtResource("1_r3iun")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_r3iun")
+
+[node name="Ingredients" type="Node2D" parent="."]
+position = Vector2(0, -17)
+
+[node name="BaseSprite" type="Sprite2D" parent="Ingredients"]
+position = Vector2(178, 149)
+texture = ExtResource("2_4ujaa")
+offset = Vector2(-178, -149)
+hframes = 2
+vframes = 2
+
+[node name="IcingSprite" type="Sprite2D" parent="Ingredients"]
+texture = ExtResource("3_knmf5")
+hframes = 2
+vframes = 2
+
+[node name="ToppingsSprite" type="Sprite2D" parent="Ingredients"]
+texture = ExtResource("4_bg1l6")
+hframes = 2
+vframes = 2
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]

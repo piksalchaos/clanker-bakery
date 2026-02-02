@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://b8bgsf6fypf5r" path="res://scenes/bot/cake_mover.gd" id="5_u8vap"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ntuq6"]
-size = Vector2(36, 72)
+size = Vector2(30, 72)
 
 [node name="Bot" type="Node2D"]
 script = ExtResource("1_qpkb6")
@@ -31,4 +31,5 @@ collision_mask = 2
 script = ExtResource("5_u8vap")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CakeMover"]
+position = Vector2(9, 0)
 shape = SubResource("RectangleShape2D_ntuq6")
