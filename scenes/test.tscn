@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=4 uid="uid://bqi5uj7qneyow"]
+[gd_scene load_steps=10 format=4 uid="uid://bqi5uj7qneyow"]
 
 [ext_resource type="Texture2D" uid="uid://p8napap0hsmo" path="res://assets/images/tileset.png" id="1_errlg"]
 [ext_resource type="PackedScene" uid="uid://d3vkei1mcmiby" path="res://scenes/conveyor.tscn" id="2_74lek"]
 [ext_resource type="PackedScene" uid="uid://dkwixg1h66al6" path="res://scenes/bot/bot.tscn" id="2_bl13t"]
 [ext_resource type="Script" uid="uid://cpkq27xvenb6e" path="res://scenes/bot_manager.gd" id="2_iyx0m"]
-[ext_resource type="PackedScene" uid="uid://cse3ktqjdgusv" path="res://scenes/cake.tscn" id="5_j5jx5"]
+[ext_resource type="PackedScene" uid="uid://cse3ktqjdgusv" path="res://scenes/cake/cake.tscn" id="5_j5jx5"]
+[ext_resource type="PackedScene" uid="uid://dk1k5mwpsgw85" path="res://scenes/machine.tscn" id="6_lpvoh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bl13t"]
 texture = ExtResource("1_errlg")
@@ -64,3 +65,6 @@ position = Vector2(612, 468)
 
 [node name="Cake" parent="." instance=ExtResource("5_j5jx5")]
 position = Vector2(828, 324)
+
+[node name="Machine" parent="." instance=ExtResource("6_lpvoh")]
+position = Vector2(756, 324)

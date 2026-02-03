@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ccswdvs631aeg"
-path="res://.godot/imported/pan.png-2d4f99bf3ef3ae9c540cc5cad27c7749.ctex"
+uid="uid://cusbkwjhbfype"
+path="res://.godot/imported/ingredients.png-9fb1b7908da9f84cd30f69d1d6956328.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/pan.png"
-dest_files=["res://.godot/imported/pan.png-2d4f99bf3ef3ae9c540cc5cad27c7749.ctex"]
+source_file="res://assets/images/cake/ingredients.png"
+dest_files=["res://.godot/imported/ingredients.png-9fb1b7908da9f84cd30f69d1d6956328.ctex"]
 
 [params]
 
