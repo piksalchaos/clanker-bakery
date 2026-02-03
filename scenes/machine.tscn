@@ -4,14 +4,20 @@
 [ext_resource type="Texture2D" uid="uid://dcx60gavvbc43" path="res://assets/images/machine.png" id="2_73k52"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_73k52"]
-size = Vector2(72, 72)
+size = Vector2(20, 35)
 
 [node name="Machine" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("1_a5lir")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -23)
+modulate = Color(0.6207096, 0.6207096, 0.6207096, 1)
+position = Vector2(1, -15)
 texture = ExtResource("2_73k52")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-20, -1)
 shape = SubResource("RectangleShape2D_73k52")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

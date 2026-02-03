@@ -9,6 +9,8 @@ extends Node2D
 
 
 func add_ingredient(ingredient: IngredientTypes.Ingredient) -> void:
+	if pan_sprite.visible:
+		pan_sprite.hide()
 	var sprite := ingredient_sprites[IngredientTypes.get_category(ingredient)]
 	sprite.frame = ingredient
 	sprite.show()

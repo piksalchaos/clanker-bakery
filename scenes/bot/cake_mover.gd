@@ -12,7 +12,6 @@ func start_moving_cakes() -> void:
 
 
 func stop_moving_cakes() -> void:
-	print('asdf')
 	cakes_to_move = []
 
 
