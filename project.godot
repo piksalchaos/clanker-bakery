@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Clanker Bakery"
-run/main_scene="uid://bqi5uj7qneyow"
+run/main_scene="uid://bahku183xws4o"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 

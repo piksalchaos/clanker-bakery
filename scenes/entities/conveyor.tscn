@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://d3vkei1mcmiby"]
 
 [ext_resource type="Texture2D" uid="uid://0a33it2ftrqk" path="res://assets/images/conveyor.png" id="1_kqxj7"]
-[ext_resource type="Script" uid="uid://r8xxv5s5dl4o" path="res://scenes/conveyor.gd" id="1_y326v"]
+[ext_resource type="Script" uid="uid://r8xxv5s5dl4o" path="res://scenes/entities/conveyor.gd" id="1_y326v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hon3i"]
 size = Vector2(72, 72)

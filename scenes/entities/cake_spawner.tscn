@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://btft1ankmx0gm"]
 
-[ext_resource type="Script" uid="uid://be8qbti7fnlst" path="res://scenes/cake_spawner.gd" id="1_paivk"]
+[ext_resource type="Script" uid="uid://be8qbti7fnlst" path="res://scenes/entities/cake_spawner.gd" id="1_paivk"]
 
 [node name="CakeSpawner" type="Node"]
 script = ExtResource("1_paivk")

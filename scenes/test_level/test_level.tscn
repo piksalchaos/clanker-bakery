@@ -1,34 +1,28 @@
-[gd_scene load_steps=18 format=4 uid="uid://bqi5uj7qneyow"]
+[gd_scene load_steps=15 format=4 uid="uid://bqi5uj7qneyow"]
 
-[ext_resource type="Script" uid="uid://dl2igs34hgx7p" path="res://scenes/life_display.gd" id="1_dw7u0"]
-[ext_resource type="PackedScene" uid="uid://bf72ckqsypua" path="res://scenes/life_heart.tscn" id="2_fyxdr"]
-[ext_resource type="Texture2D" uid="uid://p8napap0hsmo" path="res://assets/images/tileset.png" id="3_kpk0m"]
-[ext_resource type="PackedScene" uid="uid://d3vkei1mcmiby" path="res://scenes/conveyor.tscn" id="4_qs1vn"]
-[ext_resource type="Script" uid="uid://cpkq27xvenb6e" path="res://scenes/bot_manager.gd" id="5_13hs1"]
-[ext_resource type="PackedScene" uid="uid://dkwixg1h66al6" path="res://scenes/bot/bot.tscn" id="6_fptmo"]
-[ext_resource type="PackedScene" uid="uid://btft1ankmx0gm" path="res://scenes/cake_spawner.tscn" id="7_bakr3"]
-[ext_resource type="PackedScene" uid="uid://cse3ktqjdgusv" path="res://scenes/cake/cake.tscn" id="8_jqmoj"]
-[ext_resource type="Script" uid="uid://b3cerlpkcnqfq" path="res://scripts/recipe.gd" id="9_ni2ok"]
-[ext_resource type="PackedScene" uid="uid://dk1k5mwpsgw85" path="res://scenes/machine.tscn" id="10_hnsbs"]
-[ext_resource type="Texture2D" uid="uid://b8jlwh8al2xtk" path="res://assets/images/cake/icons.png" id="11_rv6en"]
-[ext_resource type="Script" uid="uid://ho1bkwd1gqry" path="res://scenes/cake_consumer.gd" id="12_fyxdr"]
+[ext_resource type="Script" uid="uid://dl2igs34hgx7p" path="res://scenes/test_level/life_display.gd" id="1_eqec7"]
+[ext_resource type="PackedScene" uid="uid://bf72ckqsypua" path="res://scenes/test_level/life_heart.tscn" id="2_nd1x5"]
+[ext_resource type="Texture2D" uid="uid://p8napap0hsmo" path="res://assets/images/tileset.png" id="3_mfp2k"]
+[ext_resource type="PackedScene" uid="uid://d3vkei1mcmiby" path="res://scenes/entities/conveyor.tscn" id="4_su4wh"]
+[ext_resource type="Script" uid="uid://cpkq27xvenb6e" path="res://scenes/test_level/bot_manager.gd" id="5_sy7g6"]
+[ext_resource type="PackedScene" uid="uid://dkwixg1h66al6" path="res://scenes/entities/bot/bot.tscn" id="6_lkhxe"]
+[ext_resource type="PackedScene" uid="uid://btft1ankmx0gm" path="res://scenes/entities/cake_spawner.tscn" id="7_s24du"]
+[ext_resource type="PackedScene" uid="uid://dk1k5mwpsgw85" path="res://scenes/entities/machine.tscn" id="8_8be2q"]
+[ext_resource type="Texture2D" uid="uid://b8jlwh8al2xtk" path="res://assets/images/cake/icons.png" id="9_i45r4"]
+[ext_resource type="Script" uid="uid://ho1bkwd1gqry" path="res://scenes/test_level/cake_consumer.gd" id="10_me1ye"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bl13t"]
-texture = ExtResource("3_kpk0m")
+texture = ExtResource("3_mfp2k")
 texture_region_size = Vector2i(72, 72)
 0:0/0 = 0
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_j5jx5"]
-scenes/1/scene = ExtResource("4_qs1vn")
+scenes/1/scene = ExtResource("4_su4wh")
 
 [sub_resource type="TileSet" id="TileSet_iyx0m"]
 tile_size = Vector2i(72, 72)
 sources/0 = SubResource("TileSetAtlasSource_bl13t")
 sources/1 = SubResource("TileSetScenesCollectionSource_j5jx5")
-
-[sub_resource type="Resource" id="Resource_uacia"]
-script = ExtResource("9_ni2ok")
-metadata/_custom_type_script = "uid://b3cerlpkcnqfq"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dw7u0"]
 size = Vector2(36, 360)
@@ -43,15 +37,15 @@ offset_top = 36.0
 offset_right = 1124.0
 offset_bottom = 108.0
 alignment = 2
-script = ExtResource("1_dw7u0")
+script = ExtResource("1_eqec7")
 
-[node name="LifeHeart" parent="CanvasLayer/LifeDisplay" instance=ExtResource("2_fyxdr")]
+[node name="LifeHeart" parent="CanvasLayer/LifeDisplay" instance=ExtResource("2_nd1x5")]
 layout_mode = 2
 
-[node name="LifeHeart2" parent="CanvasLayer/LifeDisplay" instance=ExtResource("2_fyxdr")]
+[node name="LifeHeart2" parent="CanvasLayer/LifeDisplay" instance=ExtResource("2_nd1x5")]
 layout_mode = 2
 
-[node name="LifeHeart3" parent="CanvasLayer/LifeDisplay" instance=ExtResource("2_fyxdr")]
+[node name="LifeHeart3" parent="CanvasLayer/LifeDisplay" instance=ExtResource("2_nd1x5")]
 layout_mode = 2
 
 [node name="GameOverLabel" type="Label" parent="CanvasLayer"]
@@ -72,14 +66,14 @@ tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAQAAAAA
 tile_set = SubResource("TileSet_iyx0m")
 
 [node name="BotManager" type="Node2D" parent="."]
-script = ExtResource("5_13hs1")
+script = ExtResource("5_sy7g6")
 
-[node name="Bot1" parent="BotManager" node_paths=PackedStringArray("positions") instance=ExtResource("6_fptmo")]
+[node name="Bot1" parent="BotManager" node_paths=PackedStringArray("positions") instance=ExtResource("6_lkhxe")]
 position = Vector2(540, 324)
 positions = NodePath("../../BotPositions/Bot1Positions")
 position_index = 1
 
-[node name="Bot2" parent="BotManager" node_paths=PackedStringArray("positions") instance=ExtResource("6_fptmo")]
+[node name="Bot2" parent="BotManager" node_paths=PackedStringArray("positions") instance=ExtResource("6_lkhxe")]
 position = Vector2(756, 324)
 positions = NodePath("../../BotPositions/Bot2Positions")
 position_index = 1
@@ -108,7 +102,7 @@ position = Vector2(756, 324)
 [node name="Marker2D3" type="Marker2D" parent="BotPositions/Bot2Positions"]
 position = Vector2(756, 468)
 
-[node name="CakeSpawner" parent="." node_paths=PackedStringArray("spawn_positions", "container") instance=ExtResource("7_bakr3")]
+[node name="CakeSpawner" parent="." node_paths=PackedStringArray("spawn_positions", "container") instance=ExtResource("7_s24du")]
 spawn_positions = NodePath("../CakeSpawnPositions")
 container = NodePath("../CakeContainer")
 
@@ -125,78 +119,74 @@ position = Vector2(1188, 468)
 
 [node name="CakeContainer" type="Node2D" parent="."]
 
-[node name="Cake" parent="CakeContainer" instance=ExtResource("8_jqmoj")]
-position = Vector2(108, 468)
-recipe = SubResource("Resource_uacia")
-
 [node name="Machines" type="Node2D" parent="."]
 
-[node name="Machine" parent="Machines" instance=ExtResource("10_hnsbs")]
+[node name="Machine" parent="Machines" instance=ExtResource("8_8be2q")]
 position = Vector2(648, 180)
 
 [node name="Sprite2D2" type="Sprite2D" parent="Machines/Machine"]
 position = Vector2(0, -12.5)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("11_rv6en")
+texture = ExtResource("9_i45r4")
 hframes = 3
 vframes = 2
 
-[node name="Machine2" parent="Machines" instance=ExtResource("10_hnsbs")]
+[node name="Machine2" parent="Machines" instance=ExtResource("8_8be2q")]
 position = Vector2(648, 324)
 ingredient = 1
 
 [node name="Sprite2D2" type="Sprite2D" parent="Machines/Machine2"]
 position = Vector2(0, -12.5)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("11_rv6en")
+texture = ExtResource("9_i45r4")
 hframes = 3
 vframes = 2
 frame = 1
 
-[node name="Machine3" parent="Machines" instance=ExtResource("10_hnsbs")]
+[node name="Machine3" parent="Machines" instance=ExtResource("8_8be2q")]
 position = Vector2(648, 468)
 ingredient = 2
 
 [node name="Sprite2D2" type="Sprite2D" parent="Machines/Machine3"]
 position = Vector2(0, -12.5)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("11_rv6en")
+texture = ExtResource("9_i45r4")
 hframes = 3
 vframes = 2
 frame = 2
 
-[node name="Machine4" parent="Machines" instance=ExtResource("10_hnsbs")]
+[node name="Machine4" parent="Machines" instance=ExtResource("8_8be2q")]
 position = Vector2(432, 180)
 ingredient = 3
 
 [node name="Sprite2D2" type="Sprite2D" parent="Machines/Machine4"]
 position = Vector2(0, -12.5)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("11_rv6en")
+texture = ExtResource("9_i45r4")
 hframes = 3
 vframes = 2
 frame = 3
 
-[node name="Machine5" parent="Machines" instance=ExtResource("10_hnsbs")]
+[node name="Machine5" parent="Machines" instance=ExtResource("8_8be2q")]
 position = Vector2(432, 324)
 ingredient = 4
 
 [node name="Sprite2D2" type="Sprite2D" parent="Machines/Machine5"]
 position = Vector2(0, -12.5)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("11_rv6en")
+texture = ExtResource("9_i45r4")
 hframes = 3
 vframes = 2
 frame = 4
 
-[node name="Machine6" parent="Machines" instance=ExtResource("10_hnsbs")]
+[node name="Machine6" parent="Machines" instance=ExtResource("8_8be2q")]
 position = Vector2(432, 468)
 ingredient = 5
 
 [node name="Sprite2D2" type="Sprite2D" parent="Machines/Machine6"]
 position = Vector2(0, -12.5)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("11_rv6en")
+texture = ExtResource("9_i45r4")
 hframes = 3
 vframes = 2
 frame = 5
@@ -204,7 +194,7 @@ frame = 5
 [node name="CakeConsumer" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 2
-script = ExtResource("12_fyxdr")
+script = ExtResource("10_me1ye")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CakeConsumer"]
 position = Vector2(-126, 324)

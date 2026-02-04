@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://cse3ktqjdgusv"]
 
-[ext_resource type="Script" uid="uid://n8kf4cvdlyns" path="res://scenes/cake/cake.gd" id="1_4ujaa"]
+[ext_resource type="Script" uid="uid://n8kf4cvdlyns" path="res://scenes/entities/cake/cake.gd" id="1_4ujaa"]
 [ext_resource type="Texture2D" uid="uid://dy2syw05riule" path="res://assets/images/cake/pan.png" id="2_icyrn"]
-[ext_resource type="Script" uid="uid://v1s18rxiqbfk" path="res://scenes/cake/cake_sprites.gd" id="2_yl5fd"]
+[ext_resource type="Script" uid="uid://v1s18rxiqbfk" path="res://scenes/entities/cake/cake_sprites.gd" id="2_yl5fd"]
 [ext_resource type="Texture2D" uid="uid://cusbkwjhbfype" path="res://assets/images/cake/ingredients.png" id="4_lmh8o"]
-[ext_resource type="Script" uid="uid://coosbu53gyufc" path="res://scenes/cake/recipe_display.gd" id="5_lmh8o"]
-[ext_resource type="PackedScene" uid="uid://daw6uqywkm2o5" path="res://scenes/cake/recipe_icon.tscn" id="6_lehos"]
+[ext_resource type="Script" uid="uid://coosbu53gyufc" path="res://scenes/entities/cake/recipe_display.gd" id="5_lmh8o"]
+[ext_resource type="PackedScene" uid="uid://daw6uqywkm2o5" path="res://scenes/entities/cake/recipe_icon.tscn" id="6_lehos"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r3iun"]
 size = Vector2(64, 52)
