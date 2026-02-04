@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bf72ckqsypua"]
+
+[ext_resource type="Texture2D" uid="uid://baxp3cjwucflo" path="res://assets/images/heart.png" id="1_f3axl"]
+
+[node name="LifeHeart" type="TextureRect"]
+texture = ExtResource("1_f3axl")
+expand_mode = 2
+stretch_mode = 5

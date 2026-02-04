@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://dy2syw05riule" path="res://assets/images/cake/pan.png" id="2_icyrn"]
 [ext_resource type="Script" uid="uid://v1s18rxiqbfk" path="res://scenes/cake/cake_sprites.gd" id="2_yl5fd"]
 [ext_resource type="Texture2D" uid="uid://cusbkwjhbfype" path="res://assets/images/cake/ingredients.png" id="4_lmh8o"]
-[ext_resource type="Script" uid="uid://coosbu53gyufc" path="res://scenes/cake/recipe_icons.gd" id="5_lmh8o"]
-[ext_resource type="Texture2D" uid="uid://b8jlwh8al2xtk" path="res://assets/images/cake/icons.png" id="5_memuj"]
+[ext_resource type="Script" uid="uid://coosbu53gyufc" path="res://scenes/cake/recipe_display.gd" id="5_lmh8o"]
+[ext_resource type="PackedScene" uid="uid://daw6uqywkm2o5" path="res://scenes/cake/recipe_icon.tscn" id="6_lehos"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r3iun"]
 size = Vector2(64, 52)
@@ -46,23 +46,13 @@ hframes = 3
 vframes = 3
 frame = 7
 
-[node name="RecipeIcons" type="Node2D" parent="."]
+[node name="RecipeDisplay" type="Node2D" parent="."]
 script = ExtResource("5_lmh8o")
 
-[node name="BaseIcon" type="Sprite2D" parent="RecipeIcons"]
-position = Vector2(-21, -64)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("5_memuj")
-hframes = 3
-vframes = 2
+[node name="BaseIcon" parent="RecipeDisplay" instance=ExtResource("6_lehos")]
+position = Vector2(-19, -63)
 
-[node name="IcingIcon" type="Sprite2D" parent="RecipeIcons"]
-position = Vector2(21, -64)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("5_memuj")
-hframes = 3
-vframes = 2
-frame = 3
+[node name="IcingIcon" parent="RecipeDisplay" instance=ExtResource("6_lehos")]
+position = Vector2(21, -63)
 
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]
