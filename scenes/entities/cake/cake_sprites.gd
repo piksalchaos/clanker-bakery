@@ -14,3 +14,7 @@ func add_ingredient(ingredient: IngredientTypes.Ingredient) -> void:
 	var sprite := ingredient_sprites[IngredientTypes.get_category(ingredient)]
 	sprite.frame = ingredient
 	sprite.show()
+
+
+func has_category(category: IngredientTypes.Category) -> bool:
+	return ingredient_sprites[category].visible

@@ -55,4 +55,5 @@ position = Vector2(-19, -63)
 [node name="IcingIcon" parent="RecipeDisplay" instance=ExtResource("6_lehos")]
 position = Vector2(21, -63)
 
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]

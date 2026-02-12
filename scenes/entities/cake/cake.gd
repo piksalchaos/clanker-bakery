@@ -4,6 +4,7 @@ const FALL_POSITION_OFFSET := Vector2(0, 50)
 
 @export var recipe: Recipe
 var is_moving := true
+var velocity := Vector2.ZERO
 
 @onready var sprites: Node2D = $Sprites
 @onready var recipe_display: Node2D = $RecipeDisplay
@@ -14,6 +15,8 @@ func _ready() -> void:
 
 
 func add_ingredient(ingredient: IngredientTypes.Ingredient) -> void:
+	if sprites.has_category(IngredientTypes.get_category(ingredient)):
+		return
 	sprites.add_ingredient(ingredient)
 	var category := IngredientTypes.get_category(ingredient)
 	var is_correct_ingredient := recipe.get_ingredient(category) == ingredient
@@ -24,7 +27,11 @@ func add_ingredient(ingredient: IngredientTypes.Ingredient) -> void:
 
 func _physics_process(delta: float) -> void:
 	if is_moving:
-		position.x -= 30.0 * delta #change this so it gets velocity from conveyor value
+		position += velocity * delta
+
+
+func _on_area_entered(conveyor: Conveyor) -> void:
+	velocity = conveyor.get_velocity()
 
 
 func _on_area_exited(_area: Area2D) -> void:
