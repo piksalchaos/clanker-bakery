@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 
 const CAKE = preload("uid://cse3ktqjdgusv")
 

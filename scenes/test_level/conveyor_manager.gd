@@ -1,1 +1,0 @@
-class_name ConveyorManager extends Node2D

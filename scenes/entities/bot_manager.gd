@@ -1,10 +1,11 @@
 extends Node2D
 
+@export var bot_container: Node2D
 @export var bot_index: int = 0
 
 
 func _ready() -> void:
-	get_child(bot_index).selector_sprite.show()
+	bot_container.get_child(bot_index).selector_sprite.show()
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -24,13 +25,13 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func change_bot_index(offset: int) -> void:
-	var bot: Bot = get_child(bot_index) # temp code
+	var bot: Bot = bot_container.get_child(bot_index) # temp code
 	bot.selector_sprite.hide() # temp code
-	var child_count: int = get_child_count()
+	var child_count: int = bot_container.get_child_count()
 	bot_index = (bot_index + offset + child_count) % child_count
-	bot = get_child(bot_index) # temp code
+	bot = bot_container.get_child(bot_index) # temp code
 	bot.selector_sprite.show() # temp code
 
 func move_bot(position_index_offset: int) -> void:
-	var bot: Bot = get_child(bot_index)
+	var bot: Bot = bot_container.get_child(bot_index)
 	bot.move(position_index_offset)

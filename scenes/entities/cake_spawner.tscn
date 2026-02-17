@@ -1,12 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://btft1ankmx0gm"]
+[gd_scene format=3 uid="uid://btft1ankmx0gm"]
 
 [ext_resource type="Script" uid="uid://be8qbti7fnlst" path="res://scenes/entities/cake_spawner.gd" id="1_paivk"]
 
-[node name="CakeSpawner" type="Node"]
+[node name="CakeSpawner" type="Node2D" unique_id=567058610]
 script = ExtResource("1_paivk")
 start_time = 5.0
 
-[node name="SpawnTimer" type="Timer" parent="."]
+[node name="SpawnTimer" type="Timer" parent="." unique_id=2062586594]
 wait_time = 14.0
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
