@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://caooaljefcfuq"]
+
+[ext_resource type="Script" uid="uid://bcxc1uphgaylc" path="res://scenes/test_level/conveyor_manager.gd" id="1_ge6l8"]
+
+[node name="ConveyorManager" type="Node2D" unique_id=1185112351]
+script = ExtResource("1_ge6l8")
