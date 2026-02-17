@@ -4,14 +4,16 @@
 [ext_resource type="Script" uid="uid://r8xxv5s5dl4o" path="res://scenes/entities/conveyor.gd" id="1_y326v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hon3i"]
-size = Vector2(72, 72)
+size = Vector2(40, 40)
 
 [node name="Conveyor" type="Area2D"]
 collision_mask = 0
 script = ExtResource("1_y326v")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_kqxj7")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_hon3i")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_kqxj7")
+hframes = 4
+frame = 3

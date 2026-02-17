@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://daw6uqywkm2o5" path="res://scenes/entities/cake/recipe_icon.tscn" id="6_lehos"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r3iun"]
-size = Vector2(64, 52)
+size = Vector2(36, 30)
 
 [node name="Cake" type="Area2D"]
 collision_layer = 2
@@ -18,7 +18,8 @@ script = ExtResource("1_4ujaa")
 shape = SubResource("RectangleShape2D_r3iun")
 
 [node name="Sprites" type="Node2D" parent="."]
-position = Vector2(0, -24)
+position = Vector2(0, -13.333)
+scale = Vector2(0.556, 0.556)
 script = ExtResource("2_yl5fd")
 
 [node name="PanSprite" type="Sprite2D" parent="Sprites"]
@@ -47,6 +48,7 @@ vframes = 3
 frame = 7
 
 [node name="RecipeDisplay" type="Node2D" parent="."]
+scale = Vector2(0.556, 0.556)
 script = ExtResource("5_lmh8o")
 
 [node name="BaseIcon" parent="RecipeDisplay" instance=ExtResource("6_lehos")]

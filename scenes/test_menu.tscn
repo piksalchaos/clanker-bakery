@@ -14,16 +14,17 @@ script = ExtResource("1_vg1fs")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 641.7778
+offset_bottom = 361.0
 texture = ExtResource("1_44ria")
+expand_mode = 1
 
 [node name="StartButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 841.0
-offset_top = 446.0
-offset_right = 1109.0
-offset_bottom = 552.0
+offset_left = 389.0
+offset_top = 270.0
+offset_right = 618.0
+offset_bottom = 335.0
 theme_override_font_sizes/font_size = 32
 text = "Begin Game"
 
