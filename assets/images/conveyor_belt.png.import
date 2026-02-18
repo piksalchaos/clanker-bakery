@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bw4fvd37i1aer"
-path="res://.godot/imported/conveyor_arrows-Sheet.png-c61d968a4fd9a1e16911f8806b213bee.ctex"
+uid="uid://0a33it2ftrqk"
+path="res://.godot/imported/conveyor_belt.png-a2e646f39004c443b207b4ed13cc2a86.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/conveyor_arrows-Sheet.png"
-dest_files=["res://.godot/imported/conveyor_arrows-Sheet.png-c61d968a4fd9a1e16911f8806b213bee.ctex"]
+source_file="res://assets/images/conveyor_belt.png"
+dest_files=["res://.godot/imported/conveyor_belt.png-a2e646f39004c443b207b4ed13cc2a86.ctex"]
 
 [params]
 

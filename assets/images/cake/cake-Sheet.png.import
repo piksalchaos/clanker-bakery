@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qprs4qfxadlm"
-path="res://.godot/imported/conveyor_arrows.png-6cef93af800b3b793c2f72c73b0c1e01.ctex"
+uid="uid://g6pjm82rchd"
+path="res://.godot/imported/cake-Sheet.png-c9539c4ea7028ecb165ab35dffc4d699.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/conveyor_arrows.png"
-dest_files=["res://.godot/imported/conveyor_arrows.png-6cef93af800b3b793c2f72c73b0c1e01.ctex"]
+source_file="res://assets/images/cake/cake-Sheet.png"
+dest_files=["res://.godot/imported/cake-Sheet.png-c9539c4ea7028ecb165ab35dffc4d699.ctex"]
 
 [params]
 

@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://ccdjut6nc1uaq" path="res://scenes/entities/bot/bot.gd" id="1_qpkb6"]
 [ext_resource type="Texture2D" uid="uid://dv6kvuk1vlh1a" path="res://assets/images/bot_selector.png" id="3_hhacj"]
 [ext_resource type="PackedScene" uid="uid://d3vkei1mcmiby" path="res://scenes/entities/conveyor.tscn" id="4_hon3i"]
-[ext_resource type="Texture2D" uid="uid://0a33it2ftrqk" path="res://assets/images/conveyor.png" id="4_w6qc0"]
+[ext_resource type="Texture2D" uid="uid://0a33it2ftrqk" path="res://assets/images/conveyor_belt.png" id="4_w6qc0"]
 [ext_resource type="Script" uid="uid://b8bgsf6fypf5r" path="res://scenes/entities/bot/cake_mover.gd" id="5_u8vap"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ntuq6"]
