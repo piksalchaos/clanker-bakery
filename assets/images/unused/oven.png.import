@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7cbuatyxlp0"
-path="res://.godot/imported/oven-Sheet.png-653d24de3892ade5a517aa4b7cc9d97d.ctex"
+uid="uid://oy8g5cv726ai"
+path="res://.godot/imported/oven.png-3a3c444cb583fe77ad1845123dee2f61.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/oven-Sheet.png"
-dest_files=["res://.godot/imported/oven-Sheet.png-653d24de3892ade5a517aa4b7cc9d97d.ctex"]
+source_file="res://assets/images/unused/oven.png"
+dest_files=["res://.godot/imported/oven.png-3a3c444cb583fe77ad1845123dee2f61.ctex"]
 
 [params]
 

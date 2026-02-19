@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c47jd2leikegb"
-path="res://.godot/imported/icing_machine_behind-Sheet.png-e6b2fe70ede67a0331a662ee237adeb8.ctex"
+uid="uid://dvsh6js7vuyid"
+path="res://.godot/imported/icing_machine-Sheet.png-b505d7ab05a3db9e5e257007397789bf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/icing_machine_behind-Sheet.png"
-dest_files=["res://.godot/imported/icing_machine_behind-Sheet.png-e6b2fe70ede67a0331a662ee237adeb8.ctex"]
+source_file="res://assets/images/unused/icing_machine-Sheet.png"
+dest_files=["res://.godot/imported/icing_machine-Sheet.png-b505d7ab05a3db9e5e257007397789bf.ctex"]
 
 [params]
 
