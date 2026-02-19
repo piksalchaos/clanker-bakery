@@ -23,7 +23,7 @@ func play(new_animation: String = animation_name, starting_frame_index: int = 0)
 func _set_atlas_frame(frame: int) -> void:
 	if texture is AtlasTexture:
 		@warning_ignore("integer_division")
-		var frame_coords := Vector2(frame % hframes, frame / vframes)
+		var frame_coords := Vector2(frame % hframes, (frame) / hframes)
 		texture.region.position = texture.region.size * frame_coords
 
 
@@ -51,6 +51,7 @@ func _on_frame_timer_timeout() -> void:
 
 func _ready() -> void:
 	if texture is AtlasTexture:
+		texture = texture.duplicate()
 		texture.region.size = texture.atlas.get_size() / Vector2(hframes, vframes)
 	if is_autoplay:
 		play()

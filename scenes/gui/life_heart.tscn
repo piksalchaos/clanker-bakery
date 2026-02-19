@@ -2,11 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://ba2pscy3gwe7e" path="res://scenes/gui/animated_rect.tscn" id="1_hib45"]
 [ext_resource type="Script" uid="uid://bcml831dgq2bh" path="res://scenes/gui/life_heart.gd" id="1_wnbhl"]
-[ext_resource type="Texture2D" uid="uid://bibdeqvkpy4fq" path="res://assets/images/heart-Sheet.png" id="2_wnbhl"]
 [ext_resource type="Script" uid="uid://cdip3m4l5f33a" path="res://scripts/atlas_animation.gd" id="3_uaf31"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mm8aj"]
-atlas = ExtResource("2_wnbhl")
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hib45"]
+load_path = "res://.godot/imported/heart-Sheet.png-4b1993a4d9d5fdffcc48b2578f1eed50.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wnbhl"]
+atlas = SubResource("CompressedTexture2D_hib45")
 region = Rect2(0, 0, 60, 60)
 
 [sub_resource type="Resource" id="Resource_wtwp4"]
@@ -38,7 +40,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
-texture = SubResource("AtlasTexture_mm8aj")
+texture = SubResource("AtlasTexture_wnbhl")
 stretch_mode = 3
 hframes = 3
 vframes = 2
