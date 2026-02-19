@@ -8,7 +8,7 @@ const DIRECTION_ANIMATION_MAP: Dictionary[Vector2i, String] = {
 }
 
 @export var direction := Vector2i(-1, 0)
-@export var speed: float = 30.0
+@export var speed: float = 25.0
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 

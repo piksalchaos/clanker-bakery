@@ -13,8 +13,10 @@
 [ext_resource type="AudioStream" uid="uid://bu0v3ylhov5em" path="res://assets/audio/level.ogg" id="10_qxy0u"]
 [ext_resource type="FontFile" uid="uid://b7mxipba05u02" path="res://assets/fonts/m6x11plus.ttf" id="11_excbq"]
 [ext_resource type="Texture2D" uid="uid://0vfkcuw4d2i1" path="res://assets/images/panel.png" id="11_mm8aj"]
+[ext_resource type="Script" uid="uid://cvv1rdhf33572" path="res://scenes/gui/hud.gd" id="12_iwr0g"]
 [ext_resource type="FontVariation" uid="uid://dkl6kb1xhvnx6" path="res://assets/fonts/m6x11plus - less vertical spacing.tres" id="13_mm8aj"]
 [ext_resource type="PackedScene" uid="uid://cjpsf64sytnga" path="res://scenes/gui/life_display.tscn" id="15_wtwp4"]
+[ext_resource type="Script" uid="uid://cf3n8ll07eo1u" path="res://scenes/levels/round_display.gd" id="16_bahl2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_np2pn"]
 texture = ExtResource("3_excbq")
@@ -81,9 +83,8 @@ texture_margin_bottom = 10.0
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 
-[node name="Level1" type="Node" unique_id=1439586257 node_paths=PackedStringArray("life_display")]
+[node name="Level1" type="Node" unique_id=1439586257]
 script = ExtResource("1_wtwp4")
-life_display = NodePath("HUD/LifeDisplay")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1508574440]
 stream = ExtResource("10_qxy0u")
@@ -208,6 +209,7 @@ offset_right = -5.0
 offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 0
+script = ExtResource("12_iwr0g")
 metadata/_edit_use_anchors_ = true
 
 [node name="ScoreDisplay" type="PanelContainer" parent="HUD" unique_id=1476950526]
@@ -280,6 +282,7 @@ offset_top = -70.0
 offset_right = 210.0
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxTexture_wtwp4")
+script = ExtResource("16_bahl2")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HUD/RoundDisplay" unique_id=343591022]
 layout_mode = 2
