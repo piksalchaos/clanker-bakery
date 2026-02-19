@@ -12,9 +12,8 @@
 [ext_resource type="AudioStream" uid="uid://bu0v3ylhov5em" path="res://assets/audio/level.ogg" id="10_qxy0u"]
 [ext_resource type="FontFile" uid="uid://b7mxipba05u02" path="res://assets/fonts/m6x11plus.ttf" id="11_excbq"]
 [ext_resource type="Texture2D" uid="uid://0vfkcuw4d2i1" path="res://assets/images/panel.png" id="11_mm8aj"]
-[ext_resource type="Texture2D" uid="uid://bibdeqvkpy4fq" path="res://assets/images/heart-Sheet.png" id="13_dnkej"]
-[ext_resource type="PackedScene" uid="uid://ba2pscy3gwe7e" path="res://scenes/animated_texture_rect.tscn" id="13_mm8aj"]
-[ext_resource type="Script" uid="uid://cdip3m4l5f33a" path="res://scripts/atlas_animation.gd" id="15_wtwp4"]
+[ext_resource type="PackedScene" uid="uid://dbih5wf0ul0oj" path="res://scenes/gui/life_heart.tscn" id="13_dnkej"]
+[ext_resource type="FontVariation" uid="uid://dkl6kb1xhvnx6" path="res://assets/fonts/m6x11plus - less vertical spacing.tres" id="13_mm8aj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_np2pn"]
 texture = ExtResource("3_excbq")
@@ -81,19 +80,12 @@ texture_margin_bottom = 10.0
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mm8aj"]
-atlas = ExtResource("13_dnkej")
-region = Rect2(0, 0, 60, 60)
-
-[sub_resource type="Resource" id="Resource_wtwp4"]
-script = ExtResource("15_wtwp4")
-name = "idle"
-frames = Array[int]([0, 1])
-frame_duration = 0.5
-is_loop = true
-metadata/_custom_type_script = "uid://cdip3m4l5f33a"
-
 [node name="Level1" type="Node" unique_id=1439586257]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1508574440]
+stream = ExtResource("10_qxy0u")
+volume_db = -20.0
+autoplay = true
 
 [node name="Background" parent="." unique_id=468510629 instance=ExtResource("1_dga24")]
 
@@ -104,11 +96,11 @@ direction_layer = NodePath("DirectionLayer")
 conveyor_container = NodePath("ConveyorContainer")
 
 [node name="BeltLayer" type="TileMapLayer" parent="Stage/ConveyorMap" unique_id=414592452]
-tile_map_data = PackedByteArray("AAD//wMAAAABAAAAAAD//wUAAAABAAAAAAD//wcAAAABAAAAAAAAAAMAAAACAAAAAAAAAAUAAAACAAAAAAAAAAcAAAACAAAAAAABAAMAAAACAAAAAAABAAUAAAACAAAAAAABAAcAAAACAAAAAAACAAMAAAACAAAAAAACAAUAAAACAAAAAAACAAcAAAACAAAAAAADAAMAAAACAAAAAAADAAUAAAACAAAAAAADAAcAAAACAAAAAAAEAAMAAAADAAAAAAAEAAUAAAADAAAAAAAEAAcAAAADAAAAAAAGAAMAAAABAAAAAAAGAAUAAAABAAAAAAAGAAcAAAABAAAAAAAHAAMAAAACAAAAAAAHAAUAAAACAAAAAAAHAAcAAAACAAAAAAAIAAMAAAACAAAAAAAIAAUAAAACAAAAAAAIAAcAAAACAAAAAAAJAAMAAAADAAAAAAAJAAUAAAADAAAAAAAJAAcAAAADAAAAAAALAAMAAAABAAAAAAALAAUAAAABAAAAAAALAAcAAAABAAAAAAAMAAMAAAACAAAAAAAMAAUAAAACAAAAAAAMAAcAAAACAAAAAAANAAMAAAACAAAAAAANAAUAAAACAAAAAAANAAcAAAACAAAAAAAOAAMAAAACAAAAAAAOAAUAAAACAAAAAAAOAAcAAAACAAAAAAAPAAMAAAACAAAAAAAPAAUAAAACAAAAAAAPAAcAAAACAAAAAAAQAAMAAAADAAAAAAAQAAUAAAADAAAAAAAQAAcAAAADAAAAAAA=")
+tile_map_data = PackedByteArray("AAD//wMAAAABAAAAAAD//wUAAAABAAAAAAAAAAMAAAACAAAAAAAAAAUAAAACAAAAAAABAAMAAAACAAAAAAABAAUAAAACAAAAAAACAAMAAAACAAAAAAACAAUAAAACAAAAAAADAAMAAAACAAAAAAADAAUAAAACAAAAAAAEAAMAAAADAAAAAAAEAAUAAAADAAAAAAAGAAMAAAABAAAAAAAGAAUAAAABAAAAAAAHAAMAAAACAAAAAAAHAAUAAAACAAAAAAAIAAMAAAACAAAAAAAIAAUAAAACAAAAAAAJAAMAAAADAAAAAAAJAAUAAAADAAAAAAALAAMAAAABAAAAAAALAAUAAAABAAAAAAAMAAMAAAACAAAAAAAMAAUAAAACAAAAAAANAAMAAAACAAAAAAANAAUAAAACAAAAAAAOAAMAAAACAAAAAAAOAAUAAAACAAAAAAAPAAMAAAACAAAAAAAPAAUAAAACAAAAAAAQAAMAAAADAAAAAAAQAAUAAAADAAAAAAD//wEAAAABAAAAAAAAAAEAAAACAAAAAAABAAEAAAACAAAAAAACAAEAAAACAAAAAAADAAEAAAACAAAAAAAEAAEAAAADAAAAAAAGAAEAAAABAAAAAAAHAAEAAAACAAAAAAAIAAEAAAACAAAAAAAJAAEAAAADAAAAAAALAAEAAAABAAAAAAAMAAEAAAACAAAAAAANAAEAAAACAAAAAAAOAAEAAAACAAAAAAAPAAEAAAACAAAAAAAQAAEAAAADAAAAAAA=")
 tile_set = SubResource("TileSet_v6ha0")
 
 [node name="DirectionLayer" type="TileMapLayer" parent="Stage/ConveyorMap" unique_id=1997663364]
-tile_map_data = PackedByteArray("AAD//wMAAgAAAAMAAAD//wUAAgAAAAMAAAD//wcAAgAAAAMAAAAAAAMAAgAAAAMAAAAAAAUAAgAAAAMAAAAAAAcAAgAAAAMAAAABAAMAAgAAAAMAAAABAAUAAgAAAAMAAAABAAcAAgAAAAMAAAACAAMAAgAAAAMAAAACAAUAAgAAAAMAAAACAAcAAgAAAAMAAAADAAMAAgAAAAMAAAADAAUAAgAAAAMAAAADAAcAAgAAAAMAAAAEAAMAAgAAAAMAAAAEAAUAAgAAAAMAAAAEAAcAAgAAAAMAAAAGAAMAAgAAAAMAAAAGAAUAAgAAAAMAAAAGAAcAAgAAAAMAAAAHAAMAAgAAAAMAAAAHAAUAAgAAAAMAAAAHAAcAAgAAAAMAAAAIAAMAAgAAAAMAAAAIAAUAAgAAAAMAAAAIAAcAAgAAAAMAAAAJAAMAAgAAAAMAAAAJAAUAAgAAAAMAAAAJAAcAAgAAAAMAAAALAAMAAgAAAAMAAAALAAUAAgAAAAMAAAALAAcAAgAAAAMAAAAMAAMAAgAAAAMAAAAMAAUAAgAAAAMAAAAMAAcAAgAAAAMAAAANAAMAAgAAAAMAAAANAAUAAgAAAAMAAAANAAcAAgAAAAMAAAAOAAMAAgAAAAMAAAAOAAUAAgAAAAMAAAAOAAcAAgAAAAMAAAAPAAMAAgAAAAMAAAAPAAUAAgAAAAMAAAAPAAcAAgAAAAMAAAAQAAMAAgAAAAMAAAAQAAUAAgAAAAMAAAAQAAcAAgAAAAMAAAA=")
+tile_map_data = PackedByteArray("AAD//wMAAgAAAAMAAAD//wUAAgAAAAMAAAAAAAMAAgAAAAMAAAAAAAUAAgAAAAMAAAABAAMAAgAAAAMAAAABAAUAAgAAAAMAAAACAAMAAgAAAAMAAAACAAUAAgAAAAMAAAADAAMAAgAAAAMAAAADAAUAAgAAAAMAAAAEAAMAAgAAAAMAAAAEAAUAAgAAAAMAAAAGAAMAAgAAAAMAAAAGAAUAAgAAAAMAAAAHAAMAAgAAAAMAAAAHAAUAAgAAAAMAAAAIAAMAAgAAAAMAAAAIAAUAAgAAAAMAAAAJAAMAAgAAAAMAAAAJAAUAAgAAAAMAAAALAAMAAgAAAAMAAAALAAUAAgAAAAMAAAAMAAMAAgAAAAMAAAAMAAUAAgAAAAMAAAANAAMAAgAAAAMAAAANAAUAAgAAAAMAAAAOAAMAAgAAAAMAAAAOAAUAAgAAAAMAAAAPAAMAAgAAAAMAAAAPAAUAAgAAAAMAAAAQAAMAAgAAAAMAAAAQAAUAAgAAAAMAAAD//wEAAgAAAAMAAAAAAAEAAgAAAAMAAAABAAEAAgAAAAMAAAACAAEAAgAAAAMAAAADAAEAAgAAAAMAAAAEAAEAAgAAAAMAAAAGAAEAAgAAAAMAAAAHAAEAAgAAAAMAAAAIAAEAAgAAAAMAAAAJAAEAAgAAAAMAAAALAAEAAgAAAAMAAAAMAAEAAgAAAAMAAAANAAEAAgAAAAMAAAAOAAEAAgAAAAMAAAAPAAEAAgAAAAMAAAAQAAEAAgAAAAMAAAA=")
 tile_set = SubResource("TileSet_mkypq")
 
 [node name="ConveyorContainer" type="Node2D" parent="Stage/ConveyorMap" unique_id=1034946712]
@@ -119,12 +111,12 @@ bot_container = NodePath("BotContainer")
 [node name="BotContainer" type="Node2D" parent="Stage/BotManager" unique_id=2055565539]
 
 [node name="Bot1" parent="Stage/BotManager/BotContainer" unique_id=627462690 node_paths=PackedStringArray("positions") instance=ExtResource("6_mm8aj")]
-position = Vector2(220, 220)
+position = Vector2(220, 140)
 positions = NodePath("../../BotPositions/Bot1Positions")
 position_index = 1
 
 [node name="Bot2" parent="Stage/BotManager/BotContainer" unique_id=1498953211 node_paths=PackedStringArray("positions") instance=ExtResource("6_mm8aj")]
-position = Vector2(420, 220)
+position = Vector2(420, 140)
 positions = NodePath("../../BotPositions/Bot2Positions")
 position_index = 1
 
@@ -133,24 +125,24 @@ position_index = 1
 [node name="Bot1Positions" type="Node2D" parent="Stage/BotManager/BotPositions" unique_id=421416420]
 
 [node name="Marker2D" type="Marker2D" parent="Stage/BotManager/BotPositions/Bot1Positions" unique_id=1840889247]
-position = Vector2(220, 140)
+position = Vector2(220, 60)
 
 [node name="Marker2D2" type="Marker2D" parent="Stage/BotManager/BotPositions/Bot1Positions" unique_id=1972245736]
-position = Vector2(220, 220)
+position = Vector2(220, 140)
 
 [node name="Marker2D3" type="Marker2D" parent="Stage/BotManager/BotPositions/Bot1Positions" unique_id=539350529]
-position = Vector2(220, 300)
+position = Vector2(220, 220)
 
 [node name="Bot2Positions" type="Node2D" parent="Stage/BotManager/BotPositions" unique_id=1579037210]
 
 [node name="Marker2D" type="Marker2D" parent="Stage/BotManager/BotPositions/Bot2Positions" unique_id=136363068]
-position = Vector2(420, 140)
+position = Vector2(420, 60)
 
 [node name="Marker2D2" type="Marker2D" parent="Stage/BotManager/BotPositions/Bot2Positions" unique_id=68261832]
-position = Vector2(420, 220)
+position = Vector2(420, 140)
 
 [node name="Marker2D3" type="Marker2D" parent="Stage/BotManager/BotPositions/Bot2Positions" unique_id=188753511]
-position = Vector2(420, 300)
+position = Vector2(420, 220)
 
 [node name="CakeSpawner" parent="Stage" unique_id=567058610 node_paths=PackedStringArray("spawn_positions", "container") instance=ExtResource("7_wtwp4")]
 spawn_positions = NodePath("CakeSpawnPositions")
@@ -159,39 +151,39 @@ container = NodePath("CakeContainer")
 [node name="CakeSpawnPositions" type="Node2D" parent="Stage/CakeSpawner" unique_id=1645609483]
 
 [node name="Marker2D" type="Marker2D" parent="Stage/CakeSpawner/CakeSpawnPositions" unique_id=85456611]
-position = Vector2(660, 140)
+position = Vector2(660, 60)
 
 [node name="Marker2D2" type="Marker2D" parent="Stage/CakeSpawner/CakeSpawnPositions" unique_id=993001892]
-position = Vector2(660, 220)
+position = Vector2(660, 140)
 
 [node name="Marker2D3" type="Marker2D" parent="Stage/CakeSpawner/CakeSpawnPositions" unique_id=317855040]
-position = Vector2(660, 300)
+position = Vector2(660, 220)
 
 [node name="CakeContainer" type="Node2D" parent="Stage/CakeSpawner" unique_id=1798712008]
 
 [node name="Machines" type="Node2D" parent="Stage" unique_id=1155477574]
 
 [node name="Machine" parent="Stage/Machines" unique_id=1808245571 instance=ExtResource("8_iwr0g")]
-position = Vector2(320, 140)
+position = Vector2(320, 60)
 
 [node name="Machine2" parent="Stage/Machines" unique_id=1453027822 instance=ExtResource("8_iwr0g")]
-position = Vector2(320, 220)
+position = Vector2(320, 140)
 ingredient = 1
 
 [node name="Machine3" parent="Stage/Machines" unique_id=739729059 instance=ExtResource("8_iwr0g")]
-position = Vector2(320, 300)
+position = Vector2(320, 220)
 ingredient = 2
 
 [node name="Machine4" parent="Stage/Machines" unique_id=953569798 instance=ExtResource("8_iwr0g")]
-position = Vector2(120, 140)
+position = Vector2(120, 60)
 ingredient = 3
 
 [node name="Machine5" parent="Stage/Machines" unique_id=1558146849 instance=ExtResource("8_iwr0g")]
-position = Vector2(120, 220)
+position = Vector2(120, 140)
 ingredient = 4
 
 [node name="Machine6" parent="Stage/Machines" unique_id=1181728814 instance=ExtResource("8_iwr0g")]
-position = Vector2(120, 300)
+position = Vector2(120, 220)
 ingredient = 5
 
 [node name="CakeConsumer" type="Area2D" parent="Stage" unique_id=371908232]
@@ -203,31 +195,29 @@ script = ExtResource("9_bahl2")
 position = Vector2(-49, 180)
 shape = SubResource("RectangleShape2D_ndtll")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1508574440]
-stream = ExtResource("10_qxy0u")
-volume_db = -20.0
-autoplay = true
-
 [node name="HUD" type="Control" parent="." unique_id=537553400]
 layout_mode = 3
+anchor_top = 0.7972222
 anchor_right = 1.0
-anchor_bottom = 0.26
-offset_left = 10.0
-offset_top = 5.0
-offset_right = -10.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_right = -5.0
+offset_bottom = -5.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 metadata/_edit_use_anchors_ = true
 
 [node name="ScoreDisplay" type="PanelContainer" parent="HUD" unique_id=1476950526]
 layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -43.0
-offset_right = 218.0
-offset_bottom = 43.0
-grow_vertical = 2
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -210.0
+offset_top = -70.0
+grow_horizontal = 0
+grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxTexture_wtwp4")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HUD/ScoreDisplay" unique_id=1987544863]
@@ -238,51 +228,54 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 0
 
-[node name="BestLabel" type="Label" parent="HUD/ScoreDisplay/HBoxContainer/ScoreLabels" unique_id=1127503647]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.289, 0.32215, 0.34, 1)
-theme_override_fonts/font = ExtResource("11_excbq")
-theme_override_font_sizes/font_size = 32
-text = "Best"
-
 [node name="ScoreLabel" type="Label" parent="HUD/ScoreDisplay/HBoxContainer/ScoreLabels" unique_id=1374871893]
 layout_mode = 2
+size_flags_vertical = 6
 theme_override_colors/font_color = Color(0.289, 0.32215, 0.34, 1)
 theme_override_fonts/font = ExtResource("11_excbq")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 16
 text = "Score"
+vertical_alignment = 1
+
+[node name="HighScoreLabel" type="Label" parent="HUD/ScoreDisplay/HBoxContainer/ScoreLabels" unique_id=1127503647]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0.289, 0.32215, 0.34, 1)
+theme_override_fonts/font = ExtResource("11_excbq")
+theme_override_font_sizes/font_size = 16
+text = "High Score"
+vertical_alignment = 1
 
 [node name="ScoreNumbers" type="VBoxContainer" parent="HUD/ScoreDisplay/HBoxContainer" unique_id=539786989]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="BestNumber" type="Label" parent="HUD/ScoreDisplay/HBoxContainer/ScoreNumbers" unique_id=1441592144]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.289, 0.32215, 0.34, 1)
-theme_override_fonts/font = ExtResource("11_excbq")
-theme_override_font_sizes/font_size = 32
-text = "0000000000"
-
 [node name="ScoreNumber" type="Label" parent="HUD/ScoreDisplay/HBoxContainer/ScoreNumbers" unique_id=1348721044]
 layout_mode = 2
+size_flags_vertical = 6
 theme_override_colors/font_color = Color(0.289, 0.32215, 0.34, 1)
-theme_override_fonts/font = ExtResource("11_excbq")
+theme_override_fonts/font = ExtResource("13_mm8aj")
 theme_override_font_sizes/font_size = 32
 text = "0000000000"
+vertical_alignment = 1
+
+[node name="HighScoreNumber" type="Label" parent="HUD/ScoreDisplay/HBoxContainer/ScoreNumbers" unique_id=1441592144]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0.289, 0.32215, 0.34, 1)
+theme_override_fonts/font = ExtResource("13_mm8aj")
+theme_override_font_sizes/font_size = 32
+text = "0000000000"
+vertical_alignment = 1
 
 [node name="RoundDisplay" type="PanelContainer" parent="HUD" unique_id=1044964309]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -64.0
-offset_top = -43.0
-offset_right = 64.0
-offset_bottom = 43.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -70.0
+offset_right = 210.0
+grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxTexture_wtwp4")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HUD/RoundDisplay" unique_id=343591022]
@@ -293,7 +286,7 @@ alignment = 1
 [node name="RoundLabel" type="Label" parent="HUD/RoundDisplay/VBoxContainer" unique_id=275581079]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.289, 0.32215, 0.34, 1)
-theme_override_fonts/font = ExtResource("11_excbq")
+theme_override_fonts/font = ExtResource("13_mm8aj")
 theme_override_font_sizes/font_size = 32
 text = "ROUND 1"
 horizontal_alignment = 1
@@ -301,35 +294,31 @@ horizontal_alignment = 1
 [node name="CakeCountLabel" type="Label" parent="HUD/RoundDisplay/VBoxContainer" unique_id=1401737680]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.289, 0.32215, 0.34, 1)
-theme_override_fonts/font = ExtResource("11_excbq")
+theme_override_fonts/font = ExtResource("13_mm8aj")
 theme_override_font_sizes/font_size = 32
 text = "0/8 Cakes"
 horizontal_alignment = 1
 
-[node name="LifeDisplay" type="PanelContainer" parent="HUD" unique_id=197392617]
+[node name="LifeDisplay" type="HBoxContainer" parent="HUD" unique_id=754074963]
 layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 401.0
-offset_top = -43.3
-offset_right = 619.0
-offset_bottom = 42.7
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_wtwp4")
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -87.0
+offset_top = -70.0
+offset_right = 87.0
+grow_horizontal = 2
+grow_vertical = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HUD/LifeDisplay" unique_id=754074963]
+[node name="LifeHeart" parent="HUD/LifeDisplay" unique_id=1447197999 instance=ExtResource("13_dnkej")]
 layout_mode = 2
 
-[node name="TextureRect2" parent="HUD/LifeDisplay/HBoxContainer" unique_id=1619672318 instance=ExtResource("13_mm8aj")]
+[node name="LifeHeart2" parent="HUD/LifeDisplay" unique_id=875870649 instance=ExtResource("13_dnkej")]
 layout_mode = 2
-size_flags_horizontal = 3
-texture = SubResource("AtlasTexture_mm8aj")
-stretch_mode = 5
-hframes = 3
-vframes = 2
-animations = Array[ExtResource("15_wtwp4")]([SubResource("Resource_wtwp4")])
-animation_name = "idle"
-is_autoplay = true
+
+[node name="LifeHeart3" parent="HUD/LifeDisplay" unique_id=1776451664 instance=ExtResource("13_dnkej")]
+layout_mode = 2
 
 [connection signal="area_entered" from="Stage/CakeConsumer" to="Stage/CakeConsumer" method="_on_area_entered"]

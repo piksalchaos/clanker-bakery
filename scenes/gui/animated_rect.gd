@@ -1,4 +1,4 @@
-extends TextureRect
+class_name AnimatedRect extends TextureRect
 
 
 @export var hframes: int = 1

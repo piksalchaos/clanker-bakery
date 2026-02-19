@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://dbih5wf0ul0oj"]
+
+[ext_resource type="PackedScene" uid="uid://ba2pscy3gwe7e" path="res://scenes/gui/animated_rect.tscn" id="1_hib45"]
+[ext_resource type="Script" uid="uid://bcml831dgq2bh" path="res://scenes/gui/life_heart.gd" id="1_wnbhl"]
+[ext_resource type="Texture2D" uid="uid://bibdeqvkpy4fq" path="res://assets/images/heart-Sheet.png" id="2_wnbhl"]
+[ext_resource type="Script" uid="uid://cdip3m4l5f33a" path="res://scripts/atlas_animation.gd" id="3_uaf31"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mm8aj"]
+atlas = ExtResource("2_wnbhl")
+region = Rect2(0, 0, 60, 60)
+
+[sub_resource type="Resource" id="Resource_wtwp4"]
+script = ExtResource("3_uaf31")
+name = "idle"
+frames = Array[int]([0, 1])
+frame_duration = 0.5
+is_loop = true
+metadata/_custom_type_script = "uid://cdip3m4l5f33a"
+
+[sub_resource type="Resource" id="Resource_iwr0g"]
+script = ExtResource("3_uaf31")
+name = "kill"
+frames = Array[int]([3, 4, 5])
+frame_duration = 0.1
+metadata/_custom_type_script = "uid://cdip3m4l5f33a"
+
+[node name="LifeHeart" type="Control" unique_id=1447197999]
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 3
+script = ExtResource("1_wnbhl")
+
+[node name="AnimatedRect" parent="." unique_id=1619672318 instance=ExtResource("1_hib45")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_mm8aj")
+stretch_mode = 3
+hframes = 3
+vframes = 2
+animations = Array[ExtResource("3_uaf31")]([SubResource("Resource_wtwp4"), SubResource("Resource_iwr0g")])
+animation_name = "idle"
+is_autoplay = true
