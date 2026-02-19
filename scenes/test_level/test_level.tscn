@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dl2igs34hgx7p" path="res://scenes/test_level/life_display.gd" id="1_eqec7"]
 [ext_resource type="PackedScene" uid="uid://bf72ckqsypua" path="res://scenes/test_level/life_heart.tscn" id="2_nd1x5"]
-[ext_resource type="PackedScene" uid="uid://dsspfajyn4wo7" path="res://scenes/test_level/background.tscn" id="3_nd1x5"]
+[ext_resource type="PackedScene" uid="uid://dsspfajyn4wo7" path="res://scenes/levels/background.tscn" id="3_nd1x5"]
 [ext_resource type="Texture2D" uid="uid://0a33it2ftrqk" path="res://assets/images/conveyor_belt.png" id="4_eqec7"]
 [ext_resource type="PackedScene" uid="uid://5qxdxtbqtpfy" path="res://scenes/entities/conveyor_map.tscn" id="4_mfp2k"]
 [ext_resource type="Texture2D" uid="uid://qprs4qfxadlm" path="res://assets/images/conveyor.png" id="5_nd1x5"]
@@ -13,7 +13,7 @@
 [ext_resource type="Script" uid="uid://ho1bkwd1gqry" path="res://scenes/test_level/cake_consumer.gd" id="10_me1ye"]
 [ext_resource type="AudioStream" uid="uid://bu0v3ylhov5em" path="res://assets/audio/level.ogg" id="13_su4wh"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nd1x5"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mfp2k"]
 texture = ExtResource("4_eqec7")
 texture_region_size = Vector2i(40, 40)
 0:0/0 = 0
@@ -52,9 +52,9 @@ tile_size = Vector2i(40, 40)
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
-sources/0 = SubResource("TileSetAtlasSource_nd1x5")
+sources/0 = SubResource("TileSetAtlasSource_mfp2k")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mfp2k"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_su4wh"]
 texture = ExtResource("5_nd1x5")
 texture_region_size = Vector2i(40, 40)
 0:0/0 = 0
@@ -64,14 +64,15 @@ texture_region_size = Vector2i(40, 40)
 
 [sub_resource type="TileSet" id="TileSet_su4wh"]
 tile_size = Vector2i(40, 40)
-sources/2 = SubResource("TileSetAtlasSource_mfp2k")
+sources/2 = SubResource("TileSetAtlasSource_su4wh")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dw7u0"]
-size = Vector2(36, 360)
+size = Vector2(22, 360)
 
 [node name="TestLevel" type="Node2D" unique_id=739965581]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=98541460]
+visible = false
 scale = Vector2(0.556, 0.556)
 transform = Transform2D(0.556, 0, 0, 0.556, 0, 0)
 
@@ -102,7 +103,7 @@ text = "lmao you lost L bozo"
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=531685315]
 custom_minimum_size = Vector2(640, 360)
-color = Color(0.95953256, 0.9303679, 0.8235445, 1)
+color = Color(0.9642268, 0.92041934, 0.7689144, 1)
 
 [node name="Background" parent="." unique_id=2105530211 instance=ExtResource("3_nd1x5")]
 
@@ -111,11 +112,11 @@ direction_layer = NodePath("DirectionLayer")
 conveyor_container = NodePath("ConveyorContainer")
 
 [node name="BeltLayer" type="TileMapLayer" parent="ConveyorMap" unique_id=872058441]
-tile_map_data = PackedByteArray("AAALAAYAAAABAAAAAAAMAAYAAAACAAAAAAANAAYAAAACAAAAAAAOAAYAAAACAAAAAAAPAAYAAAACAAAAAAAQAAYAAAADAAAAAAAJAAYAAAADAAAAAAAIAAYAAAACAAAAAAAHAAYAAAACAAAAAAAGAAYAAAABAAAAAAADAAYAAAACAAAAAAACAAYAAAACAAAAAAAEAAYAAAADAAAAAAABAAYAAAACAAAAAAAAAAYAAAACAAAAAAD//wYAAAABAAAAAAAEAAQAAAADAAAAAAADAAQAAAACAAAAAAACAAQAAAACAAAAAAABAAQAAAACAAAAAAAAAAQAAAACAAAAAAD//wQAAAABAAAAAAAEAAIAAAADAAAAAAADAAIAAAACAAAAAAACAAIAAAACAAAAAAABAAIAAAACAAAAAAAAAAIAAAACAAAAAAD//wIAAAABAAAAAAAGAAIAAAABAAAAAAAHAAIAAAACAAAAAAAIAAIAAAACAAAAAAAJAAIAAAADAAAAAAALAAIAAAABAAAAAAAMAAIAAAACAAAAAAANAAIAAAACAAAAAAAOAAIAAAACAAAAAAAPAAIAAAACAAAAAAAQAAIAAAADAAAAAAAGAAQAAAABAAAAAAAHAAQAAAACAAAAAAAIAAQAAAACAAAAAAAJAAQAAAADAAAAAAALAAQAAAABAAAAAAAMAAQAAAACAAAAAAANAAQAAAACAAAAAAAOAAQAAAACAAAAAAAPAAQAAAACAAAAAAAQAAQAAAADAAAAAAA=")
+tile_map_data = PackedByteArray("AAD//wMAAAABAAAAAAD//wUAAAABAAAAAAD//wcAAAABAAAAAAAAAAMAAAACAAAAAAAAAAUAAAACAAAAAAAAAAcAAAACAAAAAAABAAMAAAACAAAAAAABAAUAAAACAAAAAAABAAcAAAACAAAAAAACAAMAAAACAAAAAAACAAUAAAACAAAAAAACAAcAAAACAAAAAAADAAMAAAACAAAAAAADAAUAAAACAAAAAAADAAcAAAACAAAAAAAEAAMAAAADAAAAAAAEAAUAAAADAAAAAAAEAAcAAAADAAAAAAAGAAMAAAABAAAAAAAGAAUAAAABAAAAAAAGAAcAAAABAAAAAAAHAAMAAAACAAAAAAAHAAUAAAACAAAAAAAHAAcAAAACAAAAAAAIAAMAAAACAAAAAAAIAAUAAAACAAAAAAAIAAcAAAACAAAAAAAJAAMAAAADAAAAAAAJAAUAAAADAAAAAAAJAAcAAAADAAAAAAALAAMAAAABAAAAAAALAAUAAAABAAAAAAALAAcAAAABAAAAAAAMAAMAAAACAAAAAAAMAAUAAAACAAAAAAAMAAcAAAACAAAAAAANAAMAAAACAAAAAAANAAUAAAACAAAAAAANAAcAAAACAAAAAAAOAAMAAAACAAAAAAAOAAUAAAACAAAAAAAOAAcAAAACAAAAAAAPAAMAAAACAAAAAAAPAAUAAAACAAAAAAAPAAcAAAACAAAAAAAQAAMAAAADAAAAAAAQAAUAAAADAAAAAAAQAAcAAAADAAAAAAA=")
 tile_set = SubResource("TileSet_mfp2k")
 
 [node name="DirectionLayer" type="TileMapLayer" parent="ConveyorMap" unique_id=133649807]
-tile_map_data = PackedByteArray("AAAPAAYAAgAAAAMAAAAOAAYAAgAAAAMAAAANAAYAAgAAAAMAAAAMAAYAAgAAAAMAAAALAAYAAgAAAAMAAAAQAAYAAgAAAAMAAAAQAAQAAgAAAAMAAAAPAAQAAgAAAAMAAAAOAAQAAgAAAAMAAAANAAQAAgAAAAMAAAAMAAQAAgAAAAMAAAALAAQAAgAAAAMAAAAQAAIAAgAAAAMAAAAPAAIAAgAAAAMAAAAOAAIAAgAAAAMAAAANAAIAAgAAAAMAAAAMAAIAAgAAAAMAAAALAAIAAgAAAAMAAAAJAAIAAgAAAAMAAAAIAAIAAgAAAAMAAAAHAAIAAgAAAAMAAAAGAAIAAgAAAAMAAAAJAAQAAgAAAAMAAAAIAAQAAgAAAAMAAAAHAAQAAgAAAAMAAAAGAAQAAgAAAAMAAAAJAAYAAgAAAAMAAAAIAAYAAgAAAAMAAAAHAAYAAgAAAAMAAAAGAAYAAgAAAAMAAAAEAAYAAgAAAAMAAAADAAYAAgAAAAMAAAACAAYAAgAAAAMAAAABAAYAAgAAAAMAAAAAAAYAAgAAAAMAAAD//wYAAgAAAAMAAAAEAAQAAgAAAAMAAAADAAQAAgAAAAMAAAACAAQAAgAAAAMAAAABAAQAAgAAAAMAAAAAAAQAAgAAAAMAAAD//wQAAgAAAAMAAAAEAAIAAgAAAAMAAAADAAIAAgAAAAMAAAACAAIAAgAAAAMAAAABAAIAAgAAAAMAAAAAAAIAAgAAAAMAAAD//wIAAgAAAAMAAAA=")
+tile_map_data = PackedByteArray("AAD//wMAAgAAAAMAAAD//wUAAgAAAAMAAAD//wcAAgAAAAMAAAAAAAMAAgAAAAMAAAAAAAUAAgAAAAMAAAAAAAcAAgAAAAMAAAABAAMAAgAAAAMAAAABAAUAAgAAAAMAAAABAAcAAgAAAAMAAAACAAMAAgAAAAMAAAACAAUAAgAAAAMAAAACAAcAAgAAAAMAAAADAAMAAgAAAAMAAAADAAUAAgAAAAMAAAADAAcAAgAAAAMAAAAEAAMAAgAAAAMAAAAEAAUAAgAAAAMAAAAEAAcAAgAAAAMAAAAGAAMAAgAAAAMAAAAGAAUAAgAAAAMAAAAGAAcAAgAAAAMAAAAHAAMAAgAAAAMAAAAHAAUAAgAAAAMAAAAHAAcAAgAAAAMAAAAIAAMAAgAAAAMAAAAIAAUAAgAAAAMAAAAIAAcAAgAAAAMAAAAJAAMAAgAAAAMAAAAJAAUAAgAAAAMAAAAJAAcAAgAAAAMAAAALAAMAAgAAAAMAAAALAAUAAgAAAAMAAAALAAcAAgAAAAMAAAAMAAMAAgAAAAMAAAAMAAUAAgAAAAMAAAAMAAcAAgAAAAMAAAANAAMAAgAAAAMAAAANAAUAAgAAAAMAAAANAAcAAgAAAAMAAAAOAAMAAgAAAAMAAAAOAAUAAgAAAAMAAAAOAAcAAgAAAAMAAAAPAAMAAgAAAAMAAAAPAAUAAgAAAAMAAAAPAAcAAgAAAAMAAAAQAAMAAgAAAAMAAAAQAAUAAgAAAAMAAAAQAAcAAgAAAAMAAAA=")
 tile_set = SubResource("TileSet_su4wh")
 
 [node name="ConveyorContainer" type="Node2D" parent="ConveyorMap" unique_id=539865627]
@@ -126,12 +127,12 @@ bot_container = NodePath("BotContainer")
 [node name="BotContainer" type="Node2D" parent="BotManager" unique_id=744829220]
 
 [node name="Bot1" parent="BotManager/BotContainer" unique_id=67585030 node_paths=PackedStringArray("positions") instance=ExtResource("6_lkhxe")]
-position = Vector2(220, 180)
+position = Vector2(220, 220)
 positions = NodePath("../../BotPositions/Bot1Positions")
 position_index = 1
 
 [node name="Bot2" parent="BotManager/BotContainer" unique_id=757977759 node_paths=PackedStringArray("positions") instance=ExtResource("6_lkhxe")]
-position = Vector2(420, 180)
+position = Vector2(420, 220)
 positions = NodePath("../../BotPositions/Bot2Positions")
 position_index = 1
 
@@ -140,24 +141,24 @@ position_index = 1
 [node name="Bot1Positions" type="Node2D" parent="BotManager/BotPositions" unique_id=452964013]
 
 [node name="Marker2D" type="Marker2D" parent="BotManager/BotPositions/Bot1Positions" unique_id=1264565586]
-position = Vector2(220, 100)
+position = Vector2(220, 140)
 
 [node name="Marker2D2" type="Marker2D" parent="BotManager/BotPositions/Bot1Positions" unique_id=1207002070]
-position = Vector2(220, 180)
+position = Vector2(220, 220)
 
 [node name="Marker2D3" type="Marker2D" parent="BotManager/BotPositions/Bot1Positions" unique_id=1257358163]
-position = Vector2(220, 260)
+position = Vector2(220, 300)
 
 [node name="Bot2Positions" type="Node2D" parent="BotManager/BotPositions" unique_id=1909699127]
 
 [node name="Marker2D" type="Marker2D" parent="BotManager/BotPositions/Bot2Positions" unique_id=245788192]
-position = Vector2(420, 100)
+position = Vector2(420, 140)
 
 [node name="Marker2D2" type="Marker2D" parent="BotManager/BotPositions/Bot2Positions" unique_id=720529845]
-position = Vector2(420, 180)
+position = Vector2(420, 220)
 
 [node name="Marker2D3" type="Marker2D" parent="BotManager/BotPositions/Bot2Positions" unique_id=190777653]
-position = Vector2(420, 260)
+position = Vector2(420, 300)
 
 [node name="CakeSpawner" parent="." unique_id=814744085 node_paths=PackedStringArray("spawn_positions", "container") instance=ExtResource("7_s24du")]
 spawn_positions = NodePath("CakeSpawnPositions")
@@ -166,39 +167,39 @@ container = NodePath("CakeContainer")
 [node name="CakeSpawnPositions" type="Node2D" parent="CakeSpawner" unique_id=1364306872]
 
 [node name="Marker2D" type="Marker2D" parent="CakeSpawner/CakeSpawnPositions" unique_id=513100007]
-position = Vector2(660, 100)
+position = Vector2(660, 140)
 
 [node name="Marker2D2" type="Marker2D" parent="CakeSpawner/CakeSpawnPositions" unique_id=878935128]
-position = Vector2(660, 180)
+position = Vector2(660, 220)
 
 [node name="Marker2D3" type="Marker2D" parent="CakeSpawner/CakeSpawnPositions" unique_id=68310864]
-position = Vector2(660, 260)
+position = Vector2(660, 300)
 
 [node name="CakeContainer" type="Node2D" parent="CakeSpawner" unique_id=649292260]
 
 [node name="Machines" type="Node2D" parent="." unique_id=1755644631]
 
 [node name="Machine" parent="Machines" unique_id=1551853343 instance=ExtResource("8_8be2q")]
-position = Vector2(320, 100)
+position = Vector2(320, 140)
 
 [node name="Machine2" parent="Machines" unique_id=835947100 instance=ExtResource("8_8be2q")]
-position = Vector2(320, 180)
+position = Vector2(320, 220)
 ingredient = 1
 
 [node name="Machine3" parent="Machines" unique_id=640095301 instance=ExtResource("8_8be2q")]
-position = Vector2(320, 260)
+position = Vector2(320, 300)
 ingredient = 2
 
 [node name="Machine4" parent="Machines" unique_id=1439906892 instance=ExtResource("8_8be2q")]
-position = Vector2(120, 100)
+position = Vector2(120, 140)
 ingredient = 3
 
 [node name="Machine5" parent="Machines" unique_id=815710900 instance=ExtResource("8_8be2q")]
-position = Vector2(120, 180)
+position = Vector2(120, 220)
 ingredient = 4
 
 [node name="Machine6" parent="Machines" unique_id=1625672600 instance=ExtResource("8_8be2q")]
-position = Vector2(120, 260)
+position = Vector2(120, 300)
 ingredient = 5
 
 [node name="CakeConsumer" type="Area2D" parent="." unique_id=637347770]
@@ -207,7 +208,7 @@ collision_mask = 2
 script = ExtResource("10_me1ye")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CakeConsumer" unique_id=1444166971]
-position = Vector2(-20, 180)
+position = Vector2(-49, 180)
 shape = SubResource("RectangleShape2D_dw7u0")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1265241488]

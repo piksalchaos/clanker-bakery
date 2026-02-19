@@ -1,0 +1,185 @@
+[gd_scene format=4 uid="uid://bg52mqqr31nue"]
+
+[ext_resource type="PackedScene" uid="uid://dsspfajyn4wo7" path="res://scenes/levels/background.tscn" id="1_dga24"]
+[ext_resource type="PackedScene" uid="uid://5qxdxtbqtpfy" path="res://scenes/entities/conveyor_map.tscn" id="2_qxy0u"]
+[ext_resource type="Texture2D" uid="uid://0a33it2ftrqk" path="res://assets/images/conveyor_belt.png" id="3_excbq"]
+[ext_resource type="Texture2D" uid="uid://qprs4qfxadlm" path="res://assets/images/conveyor.png" id="4_iav0o"]
+[ext_resource type="PackedScene" uid="uid://dpqu8qj3auebk" path="res://scenes/entities/bot_manager.tscn" id="5_dnkej"]
+[ext_resource type="PackedScene" uid="uid://dkwixg1h66al6" path="res://scenes/entities/bot/bot.tscn" id="6_mm8aj"]
+[ext_resource type="PackedScene" uid="uid://btft1ankmx0gm" path="res://scenes/entities/cake_spawner.tscn" id="7_wtwp4"]
+[ext_resource type="PackedScene" uid="uid://dk1k5mwpsgw85" path="res://scenes/entities/machine.tscn" id="8_iwr0g"]
+[ext_resource type="Script" uid="uid://ho1bkwd1gqry" path="res://scenes/test_level/cake_consumer.gd" id="9_bahl2"]
+[ext_resource type="AudioStream" uid="uid://bu0v3ylhov5em" path="res://assets/audio/level.ogg" id="10_qxy0u"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_np2pn"]
+texture = ExtResource("3_excbq")
+texture_region_size = Vector2i(40, 40)
+0:0/0 = 0
+0:0/0/terrain_set = 0
+0:0/0/terrain = 0
+1:0/0 = 0
+1:0/0/terrain_set = 0
+1:0/0/terrain = 0
+1:0/0/terrains_peering_bit/right_side = 0
+2:0/0 = 0
+2:0/0/terrain_set = 0
+2:0/0/terrain = 0
+2:0/0/terrains_peering_bit/right_side = 0
+2:0/0/terrains_peering_bit/left_side = 0
+3:0/0 = 0
+3:0/0/terrain_set = 0
+3:0/0/terrain = 0
+3:0/0/terrains_peering_bit/left_side = 0
+0:1/0 = 0
+0:1/0/terrain_set = 0
+0:1/0/terrain = 0
+0:1/0/terrains_peering_bit/bottom_side = 0
+0:2/0 = 0
+0:2/0/terrain_set = 0
+0:2/0/terrain = 0
+0:2/0/terrains_peering_bit/bottom_side = 0
+0:2/0/terrains_peering_bit/top_side = 0
+0:3/0 = 0
+0:3/0/terrain_set = 0
+0:3/0/terrain = 0
+0:3/0/terrains_peering_bit/top_side = 0
+1:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_v6ha0"]
+tile_size = Vector2i(40, 40)
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "Terrain 0"
+terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
+sources/0 = SubResource("TileSetAtlasSource_np2pn")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gmpev"]
+texture = ExtResource("4_iav0o")
+texture_region_size = Vector2i(40, 40)
+0:0/0 = 0
+0:1/0 = 0
+0:2/0 = 0
+0:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_mkypq"]
+tile_size = Vector2i(40, 40)
+sources/2 = SubResource("TileSetAtlasSource_gmpev")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ndtll"]
+size = Vector2(22, 360)
+
+[node name="Level1" type="Node" unique_id=1439586257]
+
+[node name="Background" parent="." unique_id=468510629 instance=ExtResource("1_dga24")]
+
+[node name="Stage" type="Node2D" parent="." unique_id=1710798429]
+
+[node name="ConveyorMap" parent="Stage" unique_id=1912165449 node_paths=PackedStringArray("direction_layer", "conveyor_container") instance=ExtResource("2_qxy0u")]
+direction_layer = NodePath("DirectionLayer")
+conveyor_container = NodePath("ConveyorContainer")
+
+[node name="BeltLayer" type="TileMapLayer" parent="Stage/ConveyorMap" unique_id=414592452]
+tile_map_data = PackedByteArray("AAD//wMAAAABAAAAAAD//wUAAAABAAAAAAD//wcAAAABAAAAAAAAAAMAAAACAAAAAAAAAAUAAAACAAAAAAAAAAcAAAACAAAAAAABAAMAAAACAAAAAAABAAUAAAACAAAAAAABAAcAAAACAAAAAAACAAMAAAACAAAAAAACAAUAAAACAAAAAAACAAcAAAACAAAAAAADAAMAAAACAAAAAAADAAUAAAACAAAAAAADAAcAAAACAAAAAAAEAAMAAAADAAAAAAAEAAUAAAADAAAAAAAEAAcAAAADAAAAAAAGAAMAAAABAAAAAAAGAAUAAAABAAAAAAAGAAcAAAABAAAAAAAHAAMAAAACAAAAAAAHAAUAAAACAAAAAAAHAAcAAAACAAAAAAAIAAMAAAACAAAAAAAIAAUAAAACAAAAAAAIAAcAAAACAAAAAAAJAAMAAAADAAAAAAAJAAUAAAADAAAAAAAJAAcAAAADAAAAAAALAAMAAAABAAAAAAALAAUAAAABAAAAAAALAAcAAAABAAAAAAAMAAMAAAACAAAAAAAMAAUAAAACAAAAAAAMAAcAAAACAAAAAAANAAMAAAACAAAAAAANAAUAAAACAAAAAAANAAcAAAACAAAAAAAOAAMAAAACAAAAAAAOAAUAAAACAAAAAAAOAAcAAAACAAAAAAAPAAMAAAACAAAAAAAPAAUAAAACAAAAAAAPAAcAAAACAAAAAAAQAAMAAAADAAAAAAAQAAUAAAADAAAAAAAQAAcAAAADAAAAAAA=")
+tile_set = SubResource("TileSet_v6ha0")
+
+[node name="DirectionLayer" type="TileMapLayer" parent="Stage/ConveyorMap" unique_id=1997663364]
+tile_map_data = PackedByteArray("AAD//wMAAgAAAAMAAAD//wUAAgAAAAMAAAD//wcAAgAAAAMAAAAAAAMAAgAAAAMAAAAAAAUAAgAAAAMAAAAAAAcAAgAAAAMAAAABAAMAAgAAAAMAAAABAAUAAgAAAAMAAAABAAcAAgAAAAMAAAACAAMAAgAAAAMAAAACAAUAAgAAAAMAAAACAAcAAgAAAAMAAAADAAMAAgAAAAMAAAADAAUAAgAAAAMAAAADAAcAAgAAAAMAAAAEAAMAAgAAAAMAAAAEAAUAAgAAAAMAAAAEAAcAAgAAAAMAAAAGAAMAAgAAAAMAAAAGAAUAAgAAAAMAAAAGAAcAAgAAAAMAAAAHAAMAAgAAAAMAAAAHAAUAAgAAAAMAAAAHAAcAAgAAAAMAAAAIAAMAAgAAAAMAAAAIAAUAAgAAAAMAAAAIAAcAAgAAAAMAAAAJAAMAAgAAAAMAAAAJAAUAAgAAAAMAAAAJAAcAAgAAAAMAAAALAAMAAgAAAAMAAAALAAUAAgAAAAMAAAALAAcAAgAAAAMAAAAMAAMAAgAAAAMAAAAMAAUAAgAAAAMAAAAMAAcAAgAAAAMAAAANAAMAAgAAAAMAAAANAAUAAgAAAAMAAAANAAcAAgAAAAMAAAAOAAMAAgAAAAMAAAAOAAUAAgAAAAMAAAAOAAcAAgAAAAMAAAAPAAMAAgAAAAMAAAAPAAUAAgAAAAMAAAAPAAcAAgAAAAMAAAAQAAMAAgAAAAMAAAAQAAUAAgAAAAMAAAAQAAcAAgAAAAMAAAA=")
+tile_set = SubResource("TileSet_mkypq")
+
+[node name="ConveyorContainer" type="Node2D" parent="Stage/ConveyorMap" unique_id=1034946712]
+
+[node name="BotManager" parent="Stage" unique_id=394059798 node_paths=PackedStringArray("bot_container") instance=ExtResource("5_dnkej")]
+bot_container = NodePath("BotContainer")
+
+[node name="BotContainer" type="Node2D" parent="Stage/BotManager" unique_id=2055565539]
+
+[node name="Bot1" parent="Stage/BotManager/BotContainer" unique_id=627462690 node_paths=PackedStringArray("positions") instance=ExtResource("6_mm8aj")]
+position = Vector2(220, 220)
+positions = NodePath("../../BotPositions/Bot1Positions")
+position_index = 1
+
+[node name="Bot2" parent="Stage/BotManager/BotContainer" unique_id=1498953211 node_paths=PackedStringArray("positions") instance=ExtResource("6_mm8aj")]
+position = Vector2(420, 220)
+positions = NodePath("../../BotPositions/Bot2Positions")
+position_index = 1
+
+[node name="BotPositions" type="Node2D" parent="Stage/BotManager" unique_id=1453948116]
+
+[node name="Bot1Positions" type="Node2D" parent="Stage/BotManager/BotPositions" unique_id=421416420]
+
+[node name="Marker2D" type="Marker2D" parent="Stage/BotManager/BotPositions/Bot1Positions" unique_id=1840889247]
+position = Vector2(220, 140)
+
+[node name="Marker2D2" type="Marker2D" parent="Stage/BotManager/BotPositions/Bot1Positions" unique_id=1972245736]
+position = Vector2(220, 220)
+
+[node name="Marker2D3" type="Marker2D" parent="Stage/BotManager/BotPositions/Bot1Positions" unique_id=539350529]
+position = Vector2(220, 300)
+
+[node name="Bot2Positions" type="Node2D" parent="Stage/BotManager/BotPositions" unique_id=1579037210]
+
+[node name="Marker2D" type="Marker2D" parent="Stage/BotManager/BotPositions/Bot2Positions" unique_id=136363068]
+position = Vector2(420, 140)
+
+[node name="Marker2D2" type="Marker2D" parent="Stage/BotManager/BotPositions/Bot2Positions" unique_id=68261832]
+position = Vector2(420, 220)
+
+[node name="Marker2D3" type="Marker2D" parent="Stage/BotManager/BotPositions/Bot2Positions" unique_id=188753511]
+position = Vector2(420, 300)
+
+[node name="CakeSpawner" parent="Stage" unique_id=567058610 node_paths=PackedStringArray("spawn_positions", "container") instance=ExtResource("7_wtwp4")]
+spawn_positions = NodePath("CakeSpawnPositions")
+container = NodePath("CakeContainer")
+
+[node name="CakeSpawnPositions" type="Node2D" parent="Stage/CakeSpawner" unique_id=1645609483]
+
+[node name="Marker2D" type="Marker2D" parent="Stage/CakeSpawner/CakeSpawnPositions" unique_id=85456611]
+position = Vector2(660, 140)
+
+[node name="Marker2D2" type="Marker2D" parent="Stage/CakeSpawner/CakeSpawnPositions" unique_id=993001892]
+position = Vector2(660, 220)
+
+[node name="Marker2D3" type="Marker2D" parent="Stage/CakeSpawner/CakeSpawnPositions" unique_id=317855040]
+position = Vector2(660, 300)
+
+[node name="CakeContainer" type="Node2D" parent="Stage/CakeSpawner" unique_id=1798712008]
+
+[node name="Machines" type="Node2D" parent="Stage" unique_id=1155477574]
+
+[node name="Machine" parent="Stage/Machines" unique_id=1808245571 instance=ExtResource("8_iwr0g")]
+position = Vector2(320, 140)
+
+[node name="Machine2" parent="Stage/Machines" unique_id=1453027822 instance=ExtResource("8_iwr0g")]
+position = Vector2(320, 220)
+ingredient = 1
+
+[node name="Machine3" parent="Stage/Machines" unique_id=739729059 instance=ExtResource("8_iwr0g")]
+position = Vector2(320, 300)
+ingredient = 2
+
+[node name="Machine4" parent="Stage/Machines" unique_id=953569798 instance=ExtResource("8_iwr0g")]
+position = Vector2(120, 140)
+ingredient = 3
+
+[node name="Machine5" parent="Stage/Machines" unique_id=1558146849 instance=ExtResource("8_iwr0g")]
+position = Vector2(120, 220)
+ingredient = 4
+
+[node name="Machine6" parent="Stage/Machines" unique_id=1181728814 instance=ExtResource("8_iwr0g")]
+position = Vector2(120, 300)
+ingredient = 5
+
+[node name="CakeConsumer" type="Area2D" parent="Stage" unique_id=371908232]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("9_bahl2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stage/CakeConsumer" unique_id=820671594]
+position = Vector2(-49, 180)
+shape = SubResource("RectangleShape2D_ndtll")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1508574440]
+stream = ExtResource("10_qxy0u")
+volume_db = -20.0
+autoplay = true
+
+[connection signal="area_entered" from="Stage/CakeConsumer" to="Stage/CakeConsumer" method="_on_area_entered"]
