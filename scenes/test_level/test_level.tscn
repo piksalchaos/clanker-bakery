@@ -10,8 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://dpqu8qj3auebk" path="res://scenes/entities/bot_manager.tscn" id="7_mfp2k"]
 [ext_resource type="PackedScene" uid="uid://btft1ankmx0gm" path="res://scenes/entities/cake_spawner.tscn" id="7_s24du"]
 [ext_resource type="PackedScene" uid="uid://dk1k5mwpsgw85" path="res://scenes/entities/machine.tscn" id="8_8be2q"]
-[ext_resource type="Texture2D" uid="uid://b8jlwh8al2xtk" path="res://assets/images/cake/icons.png" id="9_i45r4"]
 [ext_resource type="Script" uid="uid://ho1bkwd1gqry" path="res://scenes/test_level/cake_consumer.gd" id="10_me1ye"]
+[ext_resource type="AudioStream" uid="uid://bu0v3ylhov5em" path="res://assets/audio/level.ogg" id="13_su4wh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nd1x5"]
 texture = ExtResource("4_eqec7")
@@ -102,7 +102,7 @@ text = "lmao you lost L bozo"
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=531685315]
 custom_minimum_size = Vector2(640, 360)
-color = Color(0.9351148, 0.8667751, 0.71509176, 1)
+color = Color(0.95953256, 0.9303679, 0.8235445, 1)
 
 [node name="Background" parent="." unique_id=2105530211 instance=ExtResource("3_nd1x5")]
 
@@ -181,72 +181,25 @@ position = Vector2(660, 260)
 [node name="Machine" parent="Machines" unique_id=1551853343 instance=ExtResource("8_8be2q")]
 position = Vector2(320, 100)
 
-[node name="Sprite2D2" type="Sprite2D" parent="Machines/Machine" unique_id=789245322]
-position = Vector2(0, -12.5)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("9_i45r4")
-hframes = 3
-vframes = 2
-
 [node name="Machine2" parent="Machines" unique_id=835947100 instance=ExtResource("8_8be2q")]
 position = Vector2(320, 180)
 ingredient = 1
-
-[node name="Sprite2D2" type="Sprite2D" parent="Machines/Machine2" unique_id=1611747558]
-position = Vector2(0, -12.5)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("9_i45r4")
-hframes = 3
-vframes = 2
-frame = 1
 
 [node name="Machine3" parent="Machines" unique_id=640095301 instance=ExtResource("8_8be2q")]
 position = Vector2(320, 260)
 ingredient = 2
 
-[node name="Sprite2D2" type="Sprite2D" parent="Machines/Machine3" unique_id=130217003]
-position = Vector2(0, -12.5)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("9_i45r4")
-hframes = 3
-vframes = 2
-frame = 2
-
 [node name="Machine4" parent="Machines" unique_id=1439906892 instance=ExtResource("8_8be2q")]
 position = Vector2(120, 100)
 ingredient = 3
-
-[node name="Sprite2D2" type="Sprite2D" parent="Machines/Machine4" unique_id=64668597]
-position = Vector2(0, -12.5)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("9_i45r4")
-hframes = 3
-vframes = 2
-frame = 3
 
 [node name="Machine5" parent="Machines" unique_id=815710900 instance=ExtResource("8_8be2q")]
 position = Vector2(120, 180)
 ingredient = 4
 
-[node name="Sprite2D2" type="Sprite2D" parent="Machines/Machine5" unique_id=675708553]
-position = Vector2(0, -12.5)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("9_i45r4")
-hframes = 3
-vframes = 2
-frame = 4
-
 [node name="Machine6" parent="Machines" unique_id=1625672600 instance=ExtResource("8_8be2q")]
 position = Vector2(120, 260)
 ingredient = 5
-
-[node name="Sprite2D2" type="Sprite2D" parent="Machines/Machine6" unique_id=2004153796]
-position = Vector2(0, -12.5)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("9_i45r4")
-hframes = 3
-vframes = 2
-frame = 5
 
 [node name="CakeConsumer" type="Area2D" parent="." unique_id=637347770]
 collision_layer = 0
@@ -256,5 +209,10 @@ script = ExtResource("10_me1ye")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CakeConsumer" unique_id=1444166971]
 position = Vector2(-20, 180)
 shape = SubResource("RectangleShape2D_dw7u0")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1265241488]
+stream = ExtResource("13_su4wh")
+volume_db = -20.0
+autoplay = true
 
 [connection signal="area_entered" from="CakeConsumer" to="CakeConsumer" method="_on_area_entered"]

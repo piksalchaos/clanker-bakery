@@ -11,6 +11,7 @@
 size = Vector2(36, 30)
 
 [node name="Cake" type="Area2D" unique_id=1323128054]
+z_index = 1
 collision_layer = 2
 script = ExtResource("1_4ujaa")
 
@@ -22,7 +23,6 @@ position = Vector2(0, -13.333)
 script = ExtResource("2_yl5fd")
 
 [node name="PanSprite" type="Sprite2D" parent="Sprites" unique_id=1535337439]
-scale = Vector2(0.55, 0.55)
 texture = ExtResource("2_icyrn")
 
 [node name="BaseSprite" type="Sprite2D" parent="Sprites" unique_id=1791581601]
@@ -46,14 +46,13 @@ vframes = 3
 frame = 7
 
 [node name="RecipeDisplay" type="Node2D" parent="." unique_id=484792779]
-scale = Vector2(0.556, 0.556)
 script = ExtResource("5_lmh8o")
 
 [node name="BaseIcon" parent="RecipeDisplay" unique_id=305453230 instance=ExtResource("6_lehos")]
-position = Vector2(-19, -80.93526)
+position = Vector2(-12, -40)
 
 [node name="IcingIcon" parent="RecipeDisplay" unique_id=128294286 instance=ExtResource("6_lehos")]
-position = Vector2(21, -80.93526)
+position = Vector2(12, -40)
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]
