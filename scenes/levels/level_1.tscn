@@ -10,6 +10,11 @@
 [ext_resource type="PackedScene" uid="uid://dk1k5mwpsgw85" path="res://scenes/entities/machine.tscn" id="8_iwr0g"]
 [ext_resource type="Script" uid="uid://ho1bkwd1gqry" path="res://scenes/test_level/cake_consumer.gd" id="9_bahl2"]
 [ext_resource type="AudioStream" uid="uid://bu0v3ylhov5em" path="res://assets/audio/level.ogg" id="10_qxy0u"]
+[ext_resource type="FontFile" uid="uid://b7mxipba05u02" path="res://assets/fonts/m6x11plus.ttf" id="11_excbq"]
+[ext_resource type="Texture2D" uid="uid://0vfkcuw4d2i1" path="res://assets/images/panel.png" id="11_mm8aj"]
+[ext_resource type="Texture2D" uid="uid://bibdeqvkpy4fq" path="res://assets/images/heart-Sheet.png" id="13_dnkej"]
+[ext_resource type="PackedScene" uid="uid://ba2pscy3gwe7e" path="res://scenes/animated_texture_rect.tscn" id="13_mm8aj"]
+[ext_resource type="Script" uid="uid://cdip3m4l5f33a" path="res://scripts/atlas_animation.gd" id="15_wtwp4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_np2pn"]
 texture = ExtResource("3_excbq")
@@ -66,6 +71,27 @@ sources/2 = SubResource("TileSetAtlasSource_gmpev")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ndtll"]
 size = Vector2(22, 360)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wtwp4"]
+texture = ExtResource("11_mm8aj")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mm8aj"]
+atlas = ExtResource("13_dnkej")
+region = Rect2(0, 0, 60, 60)
+
+[sub_resource type="Resource" id="Resource_wtwp4"]
+script = ExtResource("15_wtwp4")
+name = "idle"
+frames = Array[int]([0, 1])
+frame_duration = 0.5
+is_loop = true
+metadata/_custom_type_script = "uid://cdip3m4l5f33a"
 
 [node name="Level1" type="Node" unique_id=1439586257]
 
@@ -181,5 +207,129 @@ shape = SubResource("RectangleShape2D_ndtll")
 stream = ExtResource("10_qxy0u")
 volume_db = -20.0
 autoplay = true
+
+[node name="HUD" type="Control" parent="." unique_id=537553400]
+layout_mode = 3
+anchor_right = 1.0
+anchor_bottom = 0.26
+offset_left = 10.0
+offset_top = 5.0
+offset_right = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="ScoreDisplay" type="PanelContainer" parent="HUD" unique_id=1476950526]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -43.0
+offset_right = 218.0
+offset_bottom = 43.0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_wtwp4")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/ScoreDisplay" unique_id=1987544863]
+layout_mode = 2
+
+[node name="ScoreLabels" type="VBoxContainer" parent="HUD/ScoreDisplay/HBoxContainer" unique_id=1121747947]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="BestLabel" type="Label" parent="HUD/ScoreDisplay/HBoxContainer/ScoreLabels" unique_id=1127503647]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.289, 0.32215, 0.34, 1)
+theme_override_fonts/font = ExtResource("11_excbq")
+theme_override_font_sizes/font_size = 32
+text = "Best"
+
+[node name="ScoreLabel" type="Label" parent="HUD/ScoreDisplay/HBoxContainer/ScoreLabels" unique_id=1374871893]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.289, 0.32215, 0.34, 1)
+theme_override_fonts/font = ExtResource("11_excbq")
+theme_override_font_sizes/font_size = 32
+text = "Score"
+
+[node name="ScoreNumbers" type="VBoxContainer" parent="HUD/ScoreDisplay/HBoxContainer" unique_id=539786989]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="BestNumber" type="Label" parent="HUD/ScoreDisplay/HBoxContainer/ScoreNumbers" unique_id=1441592144]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.289, 0.32215, 0.34, 1)
+theme_override_fonts/font = ExtResource("11_excbq")
+theme_override_font_sizes/font_size = 32
+text = "0000000000"
+
+[node name="ScoreNumber" type="Label" parent="HUD/ScoreDisplay/HBoxContainer/ScoreNumbers" unique_id=1348721044]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.289, 0.32215, 0.34, 1)
+theme_override_fonts/font = ExtResource("11_excbq")
+theme_override_font_sizes/font_size = 32
+text = "0000000000"
+
+[node name="RoundDisplay" type="PanelContainer" parent="HUD" unique_id=1044964309]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -43.0
+offset_right = 64.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_wtwp4")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/RoundDisplay" unique_id=343591022]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="RoundLabel" type="Label" parent="HUD/RoundDisplay/VBoxContainer" unique_id=275581079]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.289, 0.32215, 0.34, 1)
+theme_override_fonts/font = ExtResource("11_excbq")
+theme_override_font_sizes/font_size = 32
+text = "ROUND 1"
+horizontal_alignment = 1
+
+[node name="CakeCountLabel" type="Label" parent="HUD/RoundDisplay/VBoxContainer" unique_id=1401737680]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.289, 0.32215, 0.34, 1)
+theme_override_fonts/font = ExtResource("11_excbq")
+theme_override_font_sizes/font_size = 32
+text = "0/8 Cakes"
+horizontal_alignment = 1
+
+[node name="LifeDisplay" type="PanelContainer" parent="HUD" unique_id=197392617]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 401.0
+offset_top = -43.3
+offset_right = 619.0
+offset_bottom = 42.7
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_wtwp4")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/LifeDisplay" unique_id=754074963]
+layout_mode = 2
+
+[node name="TextureRect2" parent="HUD/LifeDisplay/HBoxContainer" unique_id=1619672318 instance=ExtResource("13_mm8aj")]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_mm8aj")
+stretch_mode = 5
+hframes = 3
+vframes = 2
+animations = Array[ExtResource("15_wtwp4")]([SubResource("Resource_wtwp4")])
+animation_name = "idle"
+is_autoplay = true
 
 [connection signal="area_entered" from="Stage/CakeConsumer" to="Stage/CakeConsumer" method="_on_area_entered"]
