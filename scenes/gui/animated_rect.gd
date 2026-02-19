@@ -52,6 +52,5 @@ func _on_frame_timer_timeout() -> void:
 func _ready() -> void:
 	if texture is AtlasTexture:
 		texture.region.size = texture.atlas.get_size() / Vector2(hframes, vframes)
-		print(texture.region.size)
 	if is_autoplay:
 		play()

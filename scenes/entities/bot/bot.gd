@@ -1,8 +1,9 @@
 class_name Bot extends Node2D
 
 
-const MAX_VIBRATION: float = 10.0
-const VIBRATION_DELTA: float = 40.0
+const MAX_VIBRATION: float = 5.0
+const VIBRATION_DELTA: float = 30.0
+const SPRITE_Y_OFFSET: float = 25.0
 
 @export var positions: Node2D
 @export var position_index: int = 0
@@ -10,22 +11,8 @@ const VIBRATION_DELTA: float = 40.0
 var _movement_tween: Tween
 var _vibration: float = 0.0
 
-@onready var sprite_2d: Sprite2D = $Sprite2D
-@onready var selector_sprite: Sprite2D = $SelectorSprite
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var cake_mover: Area2D = $CakeMover
-
-func _ready() -> void:
-	position_index = _clamp_position_index(position_index)
-	_update_position_by_index()
-
-
-func _process(delta: float) -> void:
-	if _vibration > 0.0:
-		sprite_2d.position.x = randf_range(-_vibration/2, _vibration/2)
-		_vibration -= VIBRATION_DELTA * delta
-	else:
-		sprite_2d.position.x = 0.0
-		_vibration = 0.0
 
 
 func move(position_index_offset: int) -> void:
@@ -36,6 +23,28 @@ func move(position_index_offset: int) -> void:
 		cake_mover.start_moving_cakes()
 	else:
 		_vibration = MAX_VIBRATION
+
+
+func play_activate_animation() -> void:
+	animated_sprite_2d.play("activate")
+
+
+func play_idle_animation() -> void:
+	animated_sprite_2d.play("idle")
+
+
+func _ready() -> void:
+	position_index = _clamp_position_index(position_index)
+	_update_position_by_index()
+
+
+func _process(delta: float) -> void:
+	if _vibration > 0.0:
+		animated_sprite_2d.position.y = SPRITE_Y_OFFSET + randf_range(-_vibration/2, _vibration/2)
+		_vibration -= VIBRATION_DELTA * delta
+	else:
+		animated_sprite_2d.position.y = SPRITE_Y_OFFSET
+		_vibration = 0.0
 
 
 func _clamp_position_index(new_position_index: int) -> int:
