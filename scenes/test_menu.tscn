@@ -1,9 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://bahku183xws4o"]
+[gd_scene format=3 uid="uid://bahku183xws4o"]
 
 [ext_resource type="Texture2D" uid="uid://b4wrad10nupgy" path="res://assets/images/test_menu.png" id="1_44ria"]
 [ext_resource type="Script" uid="uid://clnj3u5gtapp6" path="res://scenes/test_menu.gd" id="1_vg1fs"]
+[ext_resource type="Texture2D" uid="uid://6swau47bl44m" path="res://assets/images/title.png" id="3_xclqx"]
 
-[node name="TestMenu" type="Control"]
+[node name="TestMenu" type="Control" unique_id=897581726]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,19 +13,33 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_vg1fs")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=309002450]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 641.7778
+offset_bottom = 361.0
 texture = ExtResource("1_44ria")
+expand_mode = 1
 
-[node name="StartButton" type="Button" parent="."]
+[node name="StartButton" type="Button" parent="." unique_id=422782047]
 layout_mode = 0
-offset_left = 841.0
-offset_top = 446.0
-offset_right = 1109.0
-offset_bottom = 552.0
+offset_left = 389.0
+offset_top = 270.0
+offset_right = 618.0
+offset_bottom = 335.0
 theme_override_font_sizes/font_size = 32
 text = "Begin Game"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1693176226]
+layout_mode = 0
+offset_right = 419.0
+offset_bottom = 127.0
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=1966524341]
+layout_mode = 0
+offset_left = 6.0
+offset_top = -31.0
+offset_right = 386.0
+offset_bottom = 194.0
+texture = ExtResource("3_xclqx")
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]

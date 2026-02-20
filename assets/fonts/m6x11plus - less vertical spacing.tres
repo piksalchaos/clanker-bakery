@@ -1,0 +1,8 @@
+[gd_resource type="FontVariation" format=3 uid="uid://dkl6kb1xhvnx6"]
+
+[ext_resource type="FontFile" uid="uid://b7mxipba05u02" path="res://assets/fonts/m6x11plus.ttf" id="1_ut4ku"]
+
+[resource]
+base_font = ExtResource("1_ut4ku")
+spacing_top = -4
+spacing_bottom = -4

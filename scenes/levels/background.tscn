@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://dsspfajyn4wo7"]
+
+[ext_resource type="Texture2D" uid="uid://dy71d11l6tsgw" path="res://assets/images/tile.png" id="2_h6hs5"]
+[ext_resource type="Script" uid="uid://n7n0ts6ew2cl" path="res://scenes/levels/shape_visual.gd" id="2_wfpcp"]
+[ext_resource type="Shader" uid="uid://byg8r7rrqu1xx" path="res://scripts/shaders/scroll_reverse.gdshader" id="3_4r0np"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u12hg"]
+shader = ExtResource("3_4r0np")
+
+[sub_resource type="Gradient" id="Gradient_x0pi7"]
+offsets = PackedFloat32Array(0, 0.25, 0.5377698, 0.8147482, 1)
+colors = PackedColorArray(1, 0.974, 0.88, 0.5294118, 1, 1, 1, 0.12748379, 1, 1, 1, 0, 1, 0.9878233, 0.9460746, 0.23483637, 1, 0.972549, 0.8784314, 0.5294118)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_h6hs5"]
+gradient = SubResource("Gradient_x0pi7")
+fill_to = Vector2(0, 1)
+
+[node name="Background" type="CanvasLayer" unique_id=1896104943]
+layer = -1
+
+[node name="YellowRect" type="ColorRect" parent="." unique_id=363675322]
+custom_minimum_size = Vector2(640, 360)
+color = Color(0.98, 0.9391667, 0.735, 1)
+
+[node name="RepeatingTile" type="TextureRect" parent="." unique_id=265255428]
+modulate = Color(0.98, 0.85260004, 0.686, 0.5019608)
+material = SubResource("ShaderMaterial_u12hg")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_h6hs5")
+stretch_mode = 1
+
+[node name="ShapeVisual" type="Node2D" parent="." unique_id=252769832]
+script = ExtResource("2_wfpcp")
+
+[node name="ShapeTimer" type="Timer" parent="ShapeVisual" unique_id=103124843]
+wait_time = 0.8
+autostart = true
+
+[node name="GradientRect" type="TextureRect" parent="." unique_id=283885351]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_h6hs5")
+
+[connection signal="timeout" from="ShapeVisual/ShapeTimer" to="ShapeVisual" method="_on_shape_timer_timeout"]

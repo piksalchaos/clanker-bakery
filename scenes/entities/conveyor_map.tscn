@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://5qxdxtbqtpfy"]
+
+[ext_resource type="Script" uid="uid://b4vllj3f2pwr4" path="res://scenes/entities/conveyor_map.gd" id="1_xbigh"]
+
+[node name="ConveyorMap" type="Node2D" unique_id=1912165449 node_paths=PackedStringArray("direction_layer", "conveyor_container")]
+script = ExtResource("1_xbigh")
+direction_layer = NodePath("")
+conveyor_container = NodePath("")

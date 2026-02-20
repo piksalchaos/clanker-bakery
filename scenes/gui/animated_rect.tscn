@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://ba2pscy3gwe7e"]
+
+[ext_resource type="Script" uid="uid://dgkgkkbjvvxd1" path="res://scenes/gui/animated_rect.gd" id="2_mbbmi"]
+
+[node name="AnimatedRect" type="TextureRect" unique_id=1619672318]
+script = ExtResource("2_mbbmi")
+
+[node name="FrameTimer" type="Timer" parent="." unique_id=314484438]
+
+[connection signal="timeout" from="FrameTimer" to="." method="_on_frame_timer_timeout"]
