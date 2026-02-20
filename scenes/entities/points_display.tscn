@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bdbef7pq4lnyl"]
+
+[ext_resource type="Script" uid="uid://bik6xrpsuehqx" path="res://scenes/entities/points_display.gd" id="1_rlgbf"]
+[ext_resource type="FontFile" uid="uid://b7mxipba05u02" path="res://assets/fonts/m6x11plus.ttf" id="2_rlgbf"]
+
+[node name="PointsDisplay" type="Node2D" unique_id=1178303940]
+z_index = 1
+script = ExtResource("1_rlgbf")
+
+[node name="PointsLabel" type="Label" parent="." unique_id=1174258362]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -8.0
+offset_right = 10.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 1, 0.36666656, 1)
+theme_override_fonts/font = ExtResource("2_rlgbf")
+text = "100000"
+horizontal_alignment = 1
+vertical_alignment = 1

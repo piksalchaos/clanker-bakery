@@ -2,6 +2,7 @@ class_name HUD extends Control
 
 @onready var life_display: LifeDisplay = $LifeDisplay
 @onready var round_display: RoundDisplay = $RoundDisplay
+@onready var score_display: ScoreDisplay = $ScoreDisplay
 
 func initialize_values(
 	lives: int,
@@ -26,5 +27,5 @@ func update_cake_count(cakes_delivered: int, cakes_required: int) -> void:
 	round_display.update_cake_count(cakes_delivered, cakes_required)
 
 
-func update_score(_score: int) -> void:
-	pass
+func update_score(score: int) -> void:
+	score_display.update_score(score)

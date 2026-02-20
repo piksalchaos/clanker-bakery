@@ -22,6 +22,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 SignalBus="*res://scripts/SignalBus.gd"
+Globals="*uid://dut7a8eqnm1aw"
 
 [debug]
 

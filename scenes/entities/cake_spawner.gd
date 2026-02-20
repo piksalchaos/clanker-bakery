@@ -5,7 +5,11 @@ const CAKE = preload("uid://cse3ktqjdgusv")
 @export var spawn_positions: Node2D
 @export var container: Node2D
 @export var start_time: float = 6.0
-@export var cake_spawn_time: float = 10.0
+@export var cake_spawn_time: float = 10.0:
+	set(value):
+		cake_spawn_time = value
+		if is_instance_valid(spawn_timer):
+			spawn_timer.wait_time = value
 
 @onready var spawn_timer: Timer = $SpawnTimer
 

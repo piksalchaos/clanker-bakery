@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://0vfkcuw4d2i1" path="res://assets/images/panel.png" id="11_mm8aj"]
 [ext_resource type="Script" uid="uid://cvv1rdhf33572" path="res://scenes/gui/hud.gd" id="12_iwr0g"]
 [ext_resource type="FontVariation" uid="uid://dkl6kb1xhvnx6" path="res://assets/fonts/m6x11plus - less vertical spacing.tres" id="13_mm8aj"]
+[ext_resource type="Script" uid="uid://bs7jq74amkc1o" path="res://scenes/levels/score_display.gd" id="15_v6ha0"]
 [ext_resource type="PackedScene" uid="uid://cjpsf64sytnga" path="res://scenes/gui/life_display.tscn" id="15_wtwp4"]
 [ext_resource type="Script" uid="uid://cf3n8ll07eo1u" path="res://scenes/levels/round_display.gd" id="16_bahl2"]
 
@@ -156,6 +157,7 @@ position = Vector2(420, 220)
 [node name="CakeSpawner" parent="Stage" unique_id=567058610 node_paths=PackedStringArray("spawn_positions", "container") instance=ExtResource("7_wtwp4")]
 spawn_positions = NodePath("CakeSpawnPositions")
 container = NodePath("CakeContainer")
+cake_spawn_time = 12.0
 
 [node name="CakeSpawnPositions" type="Node2D" parent="Stage/CakeSpawner" unique_id=1645609483]
 
@@ -229,16 +231,17 @@ offset_top = -70.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxTexture_wtwp4")
+script = ExtResource("15_v6ha0")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HUD/ScoreDisplay" unique_id=1987544863]
 layout_mode = 2
 
-[node name="ScoreLabels" type="VBoxContainer" parent="HUD/ScoreDisplay/HBoxContainer" unique_id=1121747947]
+[node name="ScoreLabelNames" type="VBoxContainer" parent="HUD/ScoreDisplay/HBoxContainer" unique_id=1121747947]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 0
 
-[node name="ScoreLabel" type="Label" parent="HUD/ScoreDisplay/HBoxContainer/ScoreLabels" unique_id=1374871893]
+[node name="ScoreLabel" type="Label" parent="HUD/ScoreDisplay/HBoxContainer/ScoreLabelNames" unique_id=1374871893]
 layout_mode = 2
 size_flags_vertical = 6
 theme_override_colors/font_color = Color(0.289, 0.32215, 0.34, 1)
@@ -247,7 +250,7 @@ theme_override_font_sizes/font_size = 16
 text = "Score"
 vertical_alignment = 1
 
-[node name="HighScoreLabel" type="Label" parent="HUD/ScoreDisplay/HBoxContainer/ScoreLabels" unique_id=1127503647]
+[node name="HighScoreLabel" type="Label" parent="HUD/ScoreDisplay/HBoxContainer/ScoreLabelNames" unique_id=1127503647]
 layout_mode = 2
 size_flags_vertical = 6
 theme_override_colors/font_color = Color(0.289, 0.32215, 0.34, 1)
@@ -256,11 +259,11 @@ theme_override_font_sizes/font_size = 16
 text = "High Score"
 vertical_alignment = 1
 
-[node name="ScoreNumbers" type="VBoxContainer" parent="HUD/ScoreDisplay/HBoxContainer" unique_id=539786989]
+[node name="ScoreLabels" type="VBoxContainer" parent="HUD/ScoreDisplay/HBoxContainer" unique_id=539786989]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="ScoreNumber" type="Label" parent="HUD/ScoreDisplay/HBoxContainer/ScoreNumbers" unique_id=1348721044]
+[node name="ScoreLabel" type="Label" parent="HUD/ScoreDisplay/HBoxContainer/ScoreLabels" unique_id=1348721044]
 layout_mode = 2
 size_flags_vertical = 6
 theme_override_colors/font_color = Color(0.289, 0.32215, 0.34, 1)
@@ -269,7 +272,7 @@ theme_override_font_sizes/font_size = 32
 text = "0000000000"
 vertical_alignment = 1
 
-[node name="HighScoreNumber" type="Label" parent="HUD/ScoreDisplay/HBoxContainer/ScoreNumbers" unique_id=1441592144]
+[node name="HighScoreLabel" type="Label" parent="HUD/ScoreDisplay/HBoxContainer/ScoreLabels" unique_id=1441592144]
 layout_mode = 2
 size_flags_vertical = 6
 theme_override_colors/font_color = Color(0.289, 0.32215, 0.34, 1)
