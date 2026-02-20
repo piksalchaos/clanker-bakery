@@ -2,24 +2,30 @@ extends Node2D
 
 @export var bot_container: Node2D
 @export var bot_index: int = 0
+@export var bot_particles: BotParticles
 
 
 func change_bot_index(offset: int) -> void:
-	var bot: Bot = bot_container.get_child(bot_index)
-	bot.play_idle_animation()
+	_get_bot().play_idle_animation()
 	var child_count: int = bot_container.get_child_count()
 	bot_index = (bot_index + offset + child_count) % child_count
-	bot = bot_container.get_child(bot_index)
-	bot.play_activate_animation()
+	_get_bot().play_activate_animation()
+	bot_particles.set_bot_with_tween(_get_bot())
 
 
 func move_bot(position_index_offset: int) -> void:
-	var bot: Bot = bot_container.get_child(bot_index)
-	bot.move(position_index_offset)
+	_get_bot().move(position_index_offset)
+	if bot_particles.is_tweening:
+		bot_particles.tween_to_position(_get_bot().incoming_position)
+
+
+func _get_bot() -> Bot:
+	return bot_container.get_child(bot_index)
 
 
 func _ready() -> void:
 	bot_container.get_child(bot_index).play_activate_animation()
+	bot_particles.bot = _get_bot()
 
 
 func _unhandled_input(event: InputEvent) -> void:

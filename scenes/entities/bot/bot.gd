@@ -1,12 +1,12 @@
 class_name Bot extends Node2D
 
-
 const MAX_VIBRATION: float = 5.0
 const VIBRATION_DELTA: float = 30.0
 const SPRITE_Y_OFFSET: float = 25.0
 
 @export var positions: Node2D
 @export var position_index: int = 0
+var incoming_position: Vector2 = position
 
 var _movement_tween: Tween
 var _vibration: float = 0.0
@@ -59,9 +59,10 @@ func _tween_position_by_index() -> void:
 	if _movement_tween and _movement_tween.is_running():
 		_movement_tween.stop()
 	
-	var final_position: Vector2 = positions.get_child(position_index).position
+	incoming_position = positions.get_child(position_index).position
+	
 	_movement_tween = create_tween()
 	_movement_tween.tween_property(
-			self, "position", final_position, 0.15
+			self, "position", incoming_position, 0.15
 			).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
 	_movement_tween.tween_callback(cake_mover.stop_moving_cakes)

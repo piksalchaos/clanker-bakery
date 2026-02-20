@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dkwixg1h66al6" path="res://scenes/entities/bot/bot.tscn" id="6_mm8aj"]
 [ext_resource type="PackedScene" uid="uid://btft1ankmx0gm" path="res://scenes/entities/cake_spawner.tscn" id="7_wtwp4"]
 [ext_resource type="PackedScene" uid="uid://dk1k5mwpsgw85" path="res://scenes/entities/machine.tscn" id="8_iwr0g"]
+[ext_resource type="PackedScene" uid="uid://c6x7ae36dtdua" path="res://scenes/entities/bot/bot_particles.tscn" id="8_np2pn"]
 [ext_resource type="Script" uid="uid://ho1bkwd1gqry" path="res://scenes/test_level/cake_consumer.gd" id="9_bahl2"]
 [ext_resource type="AudioStream" uid="uid://bu0v3ylhov5em" path="res://assets/audio/level.ogg" id="10_qxy0u"]
 [ext_resource type="FontFile" uid="uid://b7mxipba05u02" path="res://assets/fonts/m6x11plus.ttf" id="11_excbq"]
@@ -109,8 +110,12 @@ tile_set = SubResource("TileSet_mkypq")
 
 [node name="ConveyorContainer" type="Node2D" parent="Stage/ConveyorMap" unique_id=1034946712]
 
-[node name="BotManager" parent="Stage" unique_id=394059798 node_paths=PackedStringArray("bot_container") instance=ExtResource("5_dnkej")]
+[node name="BotManager" parent="Stage" unique_id=394059798 node_paths=PackedStringArray("bot_container", "bot_particles") instance=ExtResource("5_dnkej")]
 bot_container = NodePath("BotContainer")
+bot_particles = NodePath("BotParticles")
+
+[node name="BotParticles" parent="Stage/BotManager" unique_id=309969494 instance=ExtResource("8_np2pn")]
+position = Vector2(220, 169)
 
 [node name="BotContainer" type="Node2D" parent="Stage/BotManager" unique_id=2055565539]
 

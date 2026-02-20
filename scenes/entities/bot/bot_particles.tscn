@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://c6x7ae36dtdua"]
+
+[ext_resource type="Script" uid="uid://x2mv76moq30p" path="res://scenes/entities/bot/bot_particles.gd" id="1_c2tkb"]
+
+[sub_resource type="Curve" id="Curve_c2tkb"]
+_data = [Vector2(0, 1), 0.0, -3.0676014, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_bahl2"]
+offsets = PackedFloat32Array(0, 0.62166667, 1)
+colors = PackedColorArray(0.54509807, 0.8156863, 1, 1, 0.5465278, 0.8169444, 1, 0.7083334, 0.55, 0.81999993, 1, 0)
+
+[node name="BotParticles" type="CPUParticles2D" unique_id=309969494]
+amount = 30
+lifetime = 0.3
+gravity = Vector2(0, 0)
+scale_amount_min = 12.0
+scale_amount_max = 12.0
+scale_amount_curve = SubResource("Curve_c2tkb")
+color_ramp = SubResource("Gradient_bahl2")
+script = ExtResource("1_c2tkb")
