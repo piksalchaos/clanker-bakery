@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://btft1ankmx0gm" path="res://scenes/entities/cake_spawner.tscn" id="7_s24du"]
 [ext_resource type="PackedScene" uid="uid://dk1k5mwpsgw85" path="res://scenes/entities/machine.tscn" id="8_8be2q"]
 [ext_resource type="Script" uid="uid://ho1bkwd1gqry" path="res://scenes/test_level/cake_consumer.gd" id="10_me1ye"]
-[ext_resource type="AudioStream" uid="uid://bu0v3ylhov5em" path="res://assets/audio/level.ogg" id="13_su4wh"]
+[ext_resource type="AudioStream" uid="uid://bu0v3ylhov5em" path="res://assets/audio/level_music.ogg" id="13_su4wh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mfp2k"]
 texture = ExtResource("4_eqec7")

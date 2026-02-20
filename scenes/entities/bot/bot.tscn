@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://d3vkei1mcmiby" path="res://scenes/entities/conveyor.tscn" id="4_hon3i"]
 [ext_resource type="Texture2D" uid="uid://0a33it2ftrqk" path="res://assets/images/conveyor_belt.png" id="4_w6qc0"]
 [ext_resource type="Script" uid="uid://b8bgsf6fypf5r" path="res://scenes/entities/bot/cake_mover.gd" id="5_u8vap"]
+[ext_resource type="AudioStream" uid="uid://dhvu7oehie02d" path="res://assets/audio/move_bot.wav" id="6_w6qc0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gn7pa"]
 atlas = ExtResource("3_gn7pa")
@@ -88,3 +89,8 @@ script = ExtResource("5_u8vap")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CakeMover" unique_id=435396760]
 position = Vector2(5, 0)
 shape = SubResource("RectangleShape2D_ntuq6")
+
+[node name="MoveBotAudio" type="AudioStreamPlayer" parent="." unique_id=1184796834]
+stream = ExtResource("6_w6qc0")
+volume_db = -1.5
+pitch_scale = 1.5

@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://dgivw6leoitx6" path="res://scenes/levels/level_1.gd" id="1_wtwp4"]
 [ext_resource type="PackedScene" uid="uid://5qxdxtbqtpfy" path="res://scenes/entities/conveyor_map.tscn" id="2_qxy0u"]
 [ext_resource type="Texture2D" uid="uid://0a33it2ftrqk" path="res://assets/images/conveyor_belt.png" id="3_excbq"]
+[ext_resource type="AudioStream" uid="uid://cpx06beir7g78" path="res://assets/audio/life_lost.wav" id="3_gmpev"]
 [ext_resource type="Texture2D" uid="uid://qprs4qfxadlm" path="res://assets/images/conveyor.png" id="4_iav0o"]
 [ext_resource type="PackedScene" uid="uid://dpqu8qj3auebk" path="res://scenes/entities/bot_manager.tscn" id="5_dnkej"]
 [ext_resource type="PackedScene" uid="uid://dkwixg1h66al6" path="res://scenes/entities/bot/bot.tscn" id="6_mm8aj"]
@@ -11,11 +12,12 @@
 [ext_resource type="PackedScene" uid="uid://dk1k5mwpsgw85" path="res://scenes/entities/machine.tscn" id="8_iwr0g"]
 [ext_resource type="PackedScene" uid="uid://c6x7ae36dtdua" path="res://scenes/entities/bot/bot_particles.tscn" id="8_np2pn"]
 [ext_resource type="Script" uid="uid://ho1bkwd1gqry" path="res://scenes/test_level/cake_consumer.gd" id="9_bahl2"]
-[ext_resource type="AudioStream" uid="uid://bu0v3ylhov5em" path="res://assets/audio/level.ogg" id="10_qxy0u"]
+[ext_resource type="AudioStream" uid="uid://bu0v3ylhov5em" path="res://assets/audio/level_music.ogg" id="10_qxy0u"]
 [ext_resource type="FontFile" uid="uid://b7mxipba05u02" path="res://assets/fonts/m6x11plus.ttf" id="11_excbq"]
 [ext_resource type="Texture2D" uid="uid://0vfkcuw4d2i1" path="res://assets/images/panel.png" id="11_mm8aj"]
 [ext_resource type="Script" uid="uid://cvv1rdhf33572" path="res://scenes/gui/hud.gd" id="12_iwr0g"]
 [ext_resource type="FontVariation" uid="uid://dkl6kb1xhvnx6" path="res://assets/fonts/m6x11plus - less vertical spacing.tres" id="13_mm8aj"]
+[ext_resource type="AudioStream" uid="uid://djqq3vpugpfl0" path="res://assets/audio/cake_consumed.wav" id="14_mkypq"]
 [ext_resource type="Script" uid="uid://bs7jq74amkc1o" path="res://scenes/levels/score_display.gd" id="15_v6ha0"]
 [ext_resource type="PackedScene" uid="uid://cjpsf64sytnga" path="res://scenes/gui/life_display.tscn" id="15_wtwp4"]
 [ext_resource type="Script" uid="uid://cf3n8ll07eo1u" path="res://scenes/levels/round_display.gd" id="16_bahl2"]
@@ -88,10 +90,16 @@ axis_stretch_vertical = 1
 [node name="Level1" type="Node" unique_id=1439586257]
 script = ExtResource("1_wtwp4")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1508574440]
+[node name="Audio" type="Node" parent="." unique_id=679389317]
+
+[node name="LevelMusic" type="AudioStreamPlayer" parent="Audio" unique_id=1508574440]
 stream = ExtResource("10_qxy0u")
 volume_db = -20.0
 autoplay = true
+
+[node name="LifeLostAudio" type="AudioStreamPlayer" parent="Audio" unique_id=1186528937]
+stream = ExtResource("3_gmpev")
+volume_db = -3.0
 
 [node name="Background" parent="." unique_id=468510629 instance=ExtResource("1_dga24")]
 
@@ -205,6 +213,9 @@ script = ExtResource("9_bahl2")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stage/CakeConsumer" unique_id=820671594]
 position = Vector2(-49, 180)
 shape = SubResource("RectangleShape2D_ndtll")
+
+[node name="CakeConsumedAudio" type="AudioStreamPlayer" parent="Stage/CakeConsumer" unique_id=1750024425]
+stream = ExtResource("14_mkypq")
 
 [node name="HUD" type="Control" parent="." unique_id=537553400]
 layout_mode = 3

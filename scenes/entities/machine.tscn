@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dk1k5mwpsgw85"]
 
 [ext_resource type="Script" uid="uid://cgba43bvjtdhi" path="res://scenes/entities/machine.gd" id="1_a5lir"]
+[ext_resource type="AudioStream" uid="uid://t7beckl1h1aw" path="res://assets/audio/machine.wav" id="2_i0gr8"]
 [ext_resource type="Texture2D" uid="uid://bmrbfk2mbcgl3" path="res://assets/images/machine-Sheet.png" id="2_orw1l"]
 [ext_resource type="Texture2D" uid="uid://dq2rf2b5isgm6" path="res://assets/images/cake/icons-Sheet.png" id="3_77bdv"]
 
@@ -85,6 +86,9 @@ size = Vector2(2, 19.444)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_a5lir")
+
+[node name="MachineAudio" type="AudioStreamPlayer" parent="." unique_id=1905885227]
+stream = ExtResource("2_i0gr8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=145221704]
 sprite_frames = SubResource("SpriteFrames_80dcg")

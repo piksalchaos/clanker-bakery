@@ -1,7 +1,11 @@
 [gd_scene format=3 uid="uid://dpqu8qj3auebk"]
 
 [ext_resource type="Script" uid="uid://cpkq27xvenb6e" path="res://scenes/entities/bot_manager.gd" id="1_hobfo"]
+[ext_resource type="AudioStream" uid="uid://bpukvrk8wtkj0" path="res://assets/audio/switch_bot.wav" id="2_jcgek"]
 
-[node name="BotManager" type="Node2D" unique_id=394059798 node_paths=PackedStringArray("bot_container")]
+[node name="BotManager" type="Node2D" unique_id=394059798]
 script = ExtResource("1_hobfo")
-bot_container = NodePath("")
+
+[node name="SwitchBotAudio" type="AudioStreamPlayer" parent="." unique_id=1909440818]
+stream = ExtResource("2_jcgek")
+volume_db = -5.0

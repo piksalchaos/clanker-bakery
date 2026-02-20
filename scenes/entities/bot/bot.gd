@@ -14,6 +14,8 @@ var _vibration: float = 0.0
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var cake_mover: Area2D = $CakeMover
 
+@onready var move_bot_audio: AudioStreamPlayer = $MoveBotAudio
+
 
 func move(position_index_offset: int) -> void:
 	var next_position_index: int = position_index + position_index_offset
@@ -21,6 +23,8 @@ func move(position_index_offset: int) -> void:
 	if next_position_index == position_index:
 		_tween_position_by_index()
 		cake_mover.start_moving_cakes()
+		move_bot_audio.pitch_scale = 1.0 + (4 - position_index) * 0.5
+		move_bot_audio.play()
 	else:
 		_vibration = MAX_VIBRATION
 

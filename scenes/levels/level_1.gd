@@ -3,6 +3,8 @@ extends Node
 const CAKES_REQUIRED_INCREMENT: int = 4
 const MAX_LIVES: int = 3
 
+@onready var life_lost_audio: AudioStreamPlayer = $Audio/LifeLostAudio
+
 
 var _lives: int = 3:
 	set(value):
@@ -41,6 +43,7 @@ func _ready() -> void:
 
 func _on_life_lost() -> void:
 	_lives -= 1
+	life_lost_audio.play()
 
 
 func _on_cake_delivered() -> void:

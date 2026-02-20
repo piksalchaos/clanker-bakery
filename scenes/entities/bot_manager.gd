@@ -4,8 +4,12 @@ extends Node2D
 @export var bot_index: int = 0
 @export var bot_particles: BotParticles
 
+@onready var switch_bot_audio: AudioStreamPlayer = $SwitchBotAudio
+
 
 func change_bot_index(offset: int) -> void:
+	switch_bot_audio.pitch_scale = randf_range(0.75, 1.5)
+	switch_bot_audio.play()
 	_get_bot().play_idle_animation()
 	var child_count: int = bot_container.get_child_count()
 	bot_index = (bot_index + offset + child_count) % child_count
