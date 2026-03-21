@@ -10,5 +10,4 @@ Control multiple robots to run a cake bakery!
 [Play this game on itch.io](https://piksal.itch.io/clanker-bakery)
 
 ## Screenshots
-
-<img width="1147" height="646" alt="clanker bakery" src="https://github.com/user-attachments/assets/9f843cd9-e4c2-4428-8f7c-ffd753ce8d7b" />
+<img width="1429" height="794" alt="image" src="https://github.com/user-attachments/assets/89b3ee06-06d8-4ff2-b572-74dcd07a2693" />
